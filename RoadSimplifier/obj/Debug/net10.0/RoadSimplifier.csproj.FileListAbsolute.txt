@@ -1,0 +1,15 @@
+/var/www/Hermes/LogiWaze/RoadSimplifier/bin/Debug/net10.0/RoadSimplifier
+/var/www/Hermes/LogiWaze/RoadSimplifier/bin/Debug/net10.0/RoadSimplifier.deps.json
+/var/www/Hermes/LogiWaze/RoadSimplifier/bin/Debug/net10.0/RoadSimplifier.runtimeconfig.json
+/var/www/Hermes/LogiWaze/RoadSimplifier/bin/Debug/net10.0/RoadSimplifier.dll
+/var/www/Hermes/LogiWaze/RoadSimplifier/bin/Debug/net10.0/RoadSimplifier.pdb
+/var/www/Hermes/LogiWaze/RoadSimplifier/obj/Debug/net10.0/RoadSimplifier.GeneratedMSBuildEditorConfig.editorconfig
+/var/www/Hermes/LogiWaze/RoadSimplifier/obj/Debug/net10.0/RoadSimplifier.AssemblyInfoInputs.cache
+/var/www/Hermes/LogiWaze/RoadSimplifier/obj/Debug/net10.0/RoadSimplifier.AssemblyInfo.cs
+/var/www/Hermes/LogiWaze/RoadSimplifier/obj/Debug/net10.0/RoadSimplifier.csproj.CoreCompileInputs.cache
+/var/www/Hermes/LogiWaze/RoadSimplifier/obj/Debug/net10.0/RoadSimplifier.sourcelink.json
+/var/www/Hermes/LogiWaze/RoadSimplifier/obj/Debug/net10.0/RoadSimplifier.dll
+/var/www/Hermes/LogiWaze/RoadSimplifier/obj/Debug/net10.0/refint/RoadSimplifier.dll
+/var/www/Hermes/LogiWaze/RoadSimplifier/obj/Debug/net10.0/RoadSimplifier.pdb
+/var/www/Hermes/LogiWaze/RoadSimplifier/obj/Debug/net10.0/RoadSimplifier.genruntimeconfig.cache
+/var/www/Hermes/LogiWaze/RoadSimplifier/obj/Debug/net10.0/ref/RoadSimplifier.dll

@@ -149,12 +149,10 @@ export default class API {
         let key;
         let y: number;
         let x: number;
-        if (shard == null)
-            shard = 'war-service-live';
 
-        this.war = await APIQuery(`https://${shard}.foxholeservices.com/api/worldconquest/war`);
+        this.war = await APIQuery(`/statsmap/api/worldconquest/war`);
 
-        const maps = await APIQuery(`https://${shard}.foxholeservices.com/api/worldconquest/maps`);
+        const maps = await APIQuery(`/statsmap/api/worldconquest/maps`);
 
         // iterate here on the maps and collect status
         const p_x = [], p_y = [], p_t = [];
@@ -166,7 +164,7 @@ export default class API {
         const u = this;
 
         async function downloadMapData(mapName: string, i: number, mapControl, resources) {
-            const mapData = await APIQuery(`https://${shard}.foxholeservices.com/api/worldconquest/maps/${maps[i]}/dynamic/public`);
+            const mapData = await APIQuery(`/statsmap/api/worldconquest/maps/${maps[i]}/dynamic/public`);
             if (mapData.mapItems.length > 0) {
                 mapControl[mapName] = {};
                 resources[mapName] = {};
