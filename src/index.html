@@ -1718,12 +1718,69 @@
     global.getPanelVisibleWidth = getPanelVisibleWidth;
     global.getPanelVisibleHeight = getPanelVisibleHeight;
 
+    // Expose the routing + geocoder subsystems to the parent window so
+    // that embedders (e.g. the Hermes deliveries panel) can ask
+    // LogiWaze to compute travel distance/time between two town names
+    // without having to drive the on-screen geocoder UI themselves.
+    // See calculateRoute in IRouter.ts for the implementation.
+    var LogiWazeExports = global.LogiWaze = global.LogiWaze || {};
+    LogiWazeExports.ready = false;
+    LogiWazeExports.Router = null;
+    LogiWazeExports.Geocoder = null;
+    LogiWazeExports.calculateRoute = function (originName, destName, vehicle, callback) {
+        if (!LogiWazeExports.Router) { callback(new Error('router_not_ready')); return; }
+        LogiWazeExports.Router.calculateRoute(originName, destName, vehicle || 'truck', callback, LogiWazeExports);
+    };
+    var pendingRouteRequests = [];
+
+    window.addEventListener('message', function (ev) {
+        var data = ev.data;
+        if (!data || typeof data !== 'object') return;
+        if (data.type === 'logiwaze:ready') {
+            if (ev.source && typeof ev.source.postMessage === 'function') {
+                ev.source.postMessage({type: 'logiwaze:ready', ready: LogiWazeExports.ready}, '*');
+            }
+        } else if (data.type === 'logiwaze:calculate-route') {
+            if (!LogiWazeExports.ready) {
+                // Queue it, replay when ready
+                pendingRouteRequests.push({data: data, source: ev.source});
+            } else {
+                handleCalculateRoute(data, ev.source);
+            }
+        }
+    });
+
+    function handleCalculateRoute(data, source) {
+        LogiWazeExports.calculateRoute(data.origin, data.dest, data.vehicle, function (err, result) {
+            var reply = {type: 'logiwaze:route-result', id: data.id};
+            if (err) { reply.error = String(err && err.message ? err.message : err); }
+            else     { reply.result = result; }
+            if (source && typeof source.postMessage === 'function') {
+                source.postMessage(reply, '*');
+            }
+        });
+    }
+
     update_error_loop: {
         APIManager.update(async function () {
 
             const Geocoder = FoxholeGeocoder.Create(APIManager);
 
             const Router = await FoxholeRouter.Create(mymap, APIManager);
+
+            // Hand the routing + geocoder subsystems to the parent window
+            // (the Hermes deliveries panel posts calculate-route messages
+            // here once the iframe is ready). See calculateRoute in
+            // IRouter.ts for the pathfinder-based implementation.
+            LogiWazeExports.Router = Router;
+            LogiWazeExports.Geocoder = Geocoder;
+            LogiWazeExports.ready = true;
+            // Flush queued requests
+            for (var i = 0; i < pendingRouteRequests.length; i++) {
+                handleCalculateRoute(pendingRouteRequests[i].data, pendingRouteRequests[i].source);
+            }
+            pendingRouteRequests = [];
+            try { window.dispatchEvent(new Event('logiwaze:ready')); } catch (_) {}
 
 
             //Router.VectorControlGrid.build = "";//"?".concat(build);

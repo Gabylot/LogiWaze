@@ -409,7 +409,11 @@ module.exports.Create = async function (mymap, API) {
             }
         }
     }
-    await ControlLayer.prepare(API);
+    try {
+        await ControlLayer.prepare(API);
+    } catch (e) {
+        console.warn('ControlLayer preparation failed (tile rendering unavailable), routing still works:', e);
+    }
 
     ControlLayer.addTo(mymap);
     RegionLabels.addTo(mymap);
@@ -1260,6 +1264,91 @@ module.exports.Create = async function (mymap, API) {
         },
 
         // very work-in-progress
+        /**
+         * Calculate driving distance + travel time between two town names.
+         * Mirrors the existing route(...) pipeline so it uses the same
+         * pathfinder, geocoder and ownership data as the on-screen map.
+         *
+         *   calculateRoute(originName, destName, vehicle, callback, context)
+         *
+         *   vehicle: 'truck' | 'jeep' | 'flatbed' | 'htd'
+         *   callback signature: (err, result) where result is
+         *     { distance_meters, travel_seconds, route_found, error? }
+         */
+        calculateRoute: function (originName, destName, vehicle, callback, context) {
+            try {
+                const speedByVehicle = {
+                    truck:   FoxholeRouter.truckSpeed,
+                    jeep:    FoxholeRouter.jeepSpeed,
+                    flatbed: FoxholeRouter.flatbedSpeed,
+                    htd:     FoxholeRouter.htdSpeed,
+                };
+                const speed = speedByVehicle[vehicle] || FoxholeRouter.truckSpeed;
+                const call = callback.bind(context || callback);
+
+                const geocode = (name) => {
+                    const q = String(name || '').trim();
+                    if (!q) return null;
+                    const want = q.toLowerCase();
+                    let key = Object.keys(towns).find(k => k.toLowerCase() === 'major-' + want);
+                    if (!key) key = Object.keys(towns).find(k => k.toLowerCase() === 'minor-' + want.replace(/ \(area\)$/i, ''));
+                    if (!key) return null;
+                    const t = towns[key];
+                    return {x: t.x + 128, y: t.y - 128, name: t.name};
+                };
+
+                const origin = geocode(originName);
+                if (!origin) { call(new Error('geocode_failed: ' + originName), null); return; }
+                const dest = geocode(destName);
+                if (!dest) { call(new Error('geocode_failed: ' + destName), null); return; }
+
+                // Snap to nearest road node, same as the interactive route() function does
+                const snapToRoad = (x, y) => {
+                    let closest = null;
+                    let bestDist = Infinity;
+                    for (let key in FoxholeRouter.JSONRoads._layers) {
+                        const layer = FoxholeRouter.JSONRoads._layers[key];
+                        for (let k = 0; k < layer._latlngs.length; k++) {
+                            const lat = layer._latlngs[k].lat;
+                            const lng = layer._latlngs[k].lng;
+                            const d = (lat - y) * (lat - y) + (lng - x) * (lng - x);
+                            if (d < bestDist) { bestDist = d; closest = [lng, lat]; }
+                        }
+                    }
+                    return closest;
+                };
+
+                const originSnapped = snapToRoad(origin.x, origin.y);
+                const destSnapped   = snapToRoad(dest.x, dest.y);
+
+                if (!originSnapped || !destSnapped) {
+                    call(null, { route_found: false, distance_meters: 0, travel_seconds: 0 });
+                    return;
+                }
+
+                const result = FoxholeRouter.pathFinder.findPath(
+                    {name: "path", geometry: {coordinates: originSnapped}},
+                    {name: "path", geometry: {coordinates: destSnapped}}
+                );
+
+                if (!result || !result.path) {
+                    call(null, { route_found: false, distance_meters: 0, travel_seconds: 0 });
+                    return;
+                }
+
+                const distanceMeters = (result.weight / 256.0) * 12012.0;
+                const travelSeconds  = distanceMeters * speed;
+
+                call(null, {
+                    route_found: true,
+                    distance_meters: Math.round(distanceMeters),
+                    travel_seconds: Math.round(travelSeconds),
+                });
+            } catch (ex) {
+                callback(ex, null);
+            }
+        },
+
         findStructure: function (currentLocation, currentOwnership, structures) {
             highlighter.clearLayers();
 
