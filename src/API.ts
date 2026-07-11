@@ -14,6 +14,26 @@ let regionNameMap = [];
 for (let i = 0; i < regions.length; i++)
     regionNameMap[regions[i].name] = regions[i].realName;
 
+// Resolves the app's root base URL so API calls work no matter where on the
+// domain this app is deployed (e.g. "/", "/Hermes/", etc).
+//
+// Resolution order:
+//   1. `window.APP_BASE`, if the embedding page (e.g. the Laravel Blade
+//      view/iframe) explicitly provided it. This is the most reliable
+//      source since Laravel's `url('/')` / APP_URL config knows the true
+//      base regardless of folder structure.
+//   2. Fallback: derive it relative to this page's own location, assuming
+//      logiwaze/index.html lives exactly one directory below the app root
+//      (root/logiwaze/index.html or Hermes/logiwaze/index.html). "../"
+//      from the page's URL always lands back at the app root in that case.
+function resolveApiBase(): string {
+    if (typeof window !== 'undefined' && (window as any).APP_BASE)
+        return (window as any).APP_BASE;
+    return new URL('../', document.baseURI).href;
+}
+
+const API_BASE = resolveApiBase();
+
 async function APIQuery(URL): Promise<any> {
     return await (await fetch(URL)).json();
 }
@@ -146,70 +166,75 @@ export default class API {
 
     public async update(completionCallback: { (): Promise<void> }, shard, retryer) {
 
-        let key;
-        let y: number;
-        let x: number;
+        try {
+            let key;
+            let y: number;
+            let x: number;
 
-        this.war = await APIQuery(`/statsmap/api/worldconquest/war`);
+            this.war = await APIQuery(`${API_BASE}statsmap/api/worldconquest/war`);
 
-        const maps = await APIQuery(`/statsmap/api/worldconquest/maps`);
+            const maps = await APIQuery(`${API_BASE}statsmap/api/worldconquest/maps`);
 
-        // iterate here on the maps and collect status
-        const p_x = [], p_y = [], p_t = [];
+            // iterate here on the maps and collect status
+            const p_x = [], p_y = [], p_t = [];
 
-        const xf = 256 / 10;
-        const yf = xf * Math.sqrt(3) / 2;
-        const tasks: Array<Promise<void>> = [];
+            const xf = 256 / 10;
+            const yf = xf * Math.sqrt(3) / 2;
+            const tasks: Array<Promise<void>> = [];
 
-        const u = this;
+            const u = this;
 
-        async function downloadMapData(mapName: string, i: number, mapControl, resources) {
-            const mapData = await APIQuery(`/statsmap/api/worldconquest/maps/${maps[i]}/dynamic/public`);
-            if (mapData.mapItems.length > 0) {
-                mapControl[mapName] = {};
-                resources[mapName] = {};
-                const offset = u.remapXY(mapName);
-                for (let j = 0; j < mapData.mapItems.length; j++) {
-                    const icon = mapData.mapItems[j].iconType;
-                    x = mapData.mapItems[j].x;
-                    y = mapData.mapItems[j].y;
-                    x = (((x * xf) + offset.x) - xf * .5);
-                    y = ((((1 - y) * yf) + offset.y) - yf * .5);
-                    key = x.toFixed(3).toString().concat('|').concat(y.toFixed(3).toString());
-                    if (u.townHallIcons.includes(icon)) {
-                        const control = mapData.mapItems[j].teamId;
-                        mapControl[mapName][key] = {
-                            x: x,
-                            y: y,
-                            control: control,
-                            mapIcon: icon,
-                            nuked: (mapData.mapItems[j].flags & 0x10) != 0,
-                            town: u.krigingControlPointIcons.includes(icon)
-                        };
-                        if ((mapData.mapItems[j].flags & 0x10) == 0 && control != "OFFLINE" && u.krigingControlPointIcons.includes(icon)) {
-                            p_x.push(x);
-                            p_y.push(y);
-                            p_t.push(control == "WARDENS" ? -1 : (control == "COLONIALS" ? 1 : 0));
+            async function downloadMapData(mapName: string, i: number, mapControl, resources) {
+                const mapData = await APIQuery(`${API_BASE}statsmap/api/worldconquest/maps/${maps[i]}/dynamic/public`);
+                if (mapData.mapItems.length > 0) {
+                    mapControl[mapName] = {};
+                    resources[mapName] = {};
+                    const offset = u.remapXY(mapName);
+                    for (let j = 0; j < mapData.mapItems.length; j++) {
+                        const icon = mapData.mapItems[j].iconType;
+                        x = mapData.mapItems[j].x;
+                        y = mapData.mapItems[j].y;
+                        x = (((x * xf) + offset.x) - xf * .5);
+                        y = ((((1 - y) * yf) + offset.y) - yf * .5);
+                        key = x.toFixed(3).toString().concat('|').concat(y.toFixed(3).toString());
+                        if (u.townHallIcons.includes(icon)) {
+                            const control = mapData.mapItems[j].teamId;
+                            mapControl[mapName][key] = {
+                                x: x,
+                                y: y,
+                                control: control,
+                                mapIcon: icon,
+                                nuked: (mapData.mapItems[j].flags & 0x10) != 0,
+                                town: u.krigingControlPointIcons.includes(icon)
+                            };
+                            if ((mapData.mapItems[j].flags & 0x10) == 0 && control != "OFFLINE" && u.krigingControlPointIcons.includes(icon)) {
+                                p_x.push(x);
+                                p_y.push(y);
+                                p_t.push(control == "WARDENS" ? -1 : (control == "COLONIALS" ? 1 : 0));
+                            }
+                        } else {
+                            resources[mapName][key] = {
+                                x: x,
+                                y: y,
+                                control: mapData.mapItems[j].teamId,
+                                mapIcon: icon,
+                                nuked: (mapData.mapItems[j].flags & 0x10) != 0
+                            };
                         }
-                    } else {
-                        resources[mapName][key] = {
-                            x: x,
-                            y: y,
-                            control: mapData.mapItems[j].teamId,
-                            mapIcon: icon,
-                            nuked: (mapData.mapItems[j].flags & 0x10) != 0
-                        };
                     }
                 }
             }
+
+            for (let i = 0; i < maps.length; i++)
+                tasks.push(downloadMapData(maps[i], i, this.mapControl, this.resources));
+            await Promise.all(tasks);
+
+            this.variogram = kriging.train(p_t, p_x, p_y, 'exponential', 0, 100);
+            await completionCallback();
+        } catch (err) {
+            console.error('LogiWaze API update failed:', err);
+            if (typeof retryer === 'function') retryer(err);
         }
-
-        for (let i = 0; i < maps.length; i++)
-            tasks.push(downloadMapData(maps[i], i, this.mapControl, this.resources));
-        await Promise.all(tasks);
-
-        this.variogram = kriging.train(p_t, p_x, p_y, 'exponential', 0, 100);
-        await completionCallback();
     }
 
     public variogram: any

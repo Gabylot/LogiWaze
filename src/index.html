@@ -1547,6 +1547,16 @@
 </div>
 <!--<script type="module" src="./ServiceWorker.ts"></script>-->
 
+<script>
+    // Set by the parent Blade view via ?base=<url('/')> query param so
+    // API.ts knows the true app root, regardless of where it's deployed.
+    (function () {
+        var params = new URLSearchParams(location.search);
+        var base = params.get('base');
+        if (base) window.APP_BASE = base;
+    })();
+</script>
+
 <script type="module">
     //import "./index";
     import {
