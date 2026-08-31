@@ -27,9 +27,17 @@ for (let i = 0; i < regions.length; i++)
 //      (root/logiwaze/index.html or Hermes/logiwaze/index.html). "../"
 //      from the page's URL always lands back at the app root in that case.
 function resolveApiBase(): string {
+    let base: string;
     if (typeof window !== 'undefined' && (window as any).APP_BASE)
-        return (window as any).APP_BASE;
-    return new URL('../', document.baseURI).href;
+        base = (window as any).APP_BASE;
+    else
+        base = new URL('../', document.baseURI).href;
+
+    // Ensure exactly one trailing slash, regardless of what was supplied
+    // (e.g. Laravel's url('/') can return "https://domain.com" with no
+    // trailing slash), so the "statsmap/..." suffix always concatenates
+    // cleanly.
+    return base.endsWith('/') ? base : base + '/';
 }
 
 const API_BASE = resolveApiBase();
