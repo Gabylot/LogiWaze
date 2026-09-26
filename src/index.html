@@ -10,6 +10,33 @@
     <title>LogiWaze</title>
 
     <style type="text/css">
+        /* ── Operation Room drawing overlays (Hermes) ── */
+        .hw-drawing-marker { background: none !important; border: none !important; }
+        .hw-drawing-pin {
+            width: 18px; height: 18px; border-radius: 50%;
+            background: rgba(16, 22, 30, .92);
+            border: 3px solid var(--hw-draw-color, #ffde59);
+            box-shadow: 0 1px 8px rgba(0,0,0,.9);
+            box-sizing: border-box;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .hw-drawing-pin-label {
+            position: absolute; left: 22px; top: -4px;
+            white-space: nowrap;
+            font: 700 11px/1.2 "Renner", "Helvetica Neue", Arial, sans-serif;
+            color: #fff;
+            text-shadow: 0 0 3px #000, 0 0 2px #000;
+            pointer-events: none;
+        }
+        .hw-drawing-text { background: none !important; border: none !important; }
+        .hw-drawing-label {
+            white-space: nowrap;
+            font: 700 13px/1.3 "Renner", "Helvetica Neue", Arial, sans-serif;
+            text-shadow: 0 0 4px #000, 0 0 3px #000, 0 1px 2px #000;
+            pointer-events: none;
+            transform: translateX(6px);
+        }
+
         @keyframes fadeOutAnimation {
             0% {
                 opacity: 1
@@ -2041,6 +2068,271 @@
         }, 350);
     }
 
+    // ---- Operation Room drawings (Hermes integration) ------------------------
+    // The parent page (Hermes oproom) drives a shared whiteboard on this map:
+    //   • {type:'logiwaze:set-tool', tool: 'marker'|'line'|'polygon'|'circle'|'rectangle'|'text'|null}
+    //     — activates/deactivates a drawing tool. While active, map clicks
+    //       build the shape; finishing posts {type:'logiwaze:drawing-created'}
+    //       with world-space geometry back to the parent for persistence.
+    //   • {type:'logiwaze:set-drawings', drawings:[...]} — full replace of the
+    //     persisted (broadcast) drawings layer, keyed by drawing id. Sent on
+    //     load and after every create/update/delete broadcast.
+    // Coordinates are plain Leaflet world coords (CRS.Simple, 256x256 space),
+    // identical across all clients since the tile pyramid is static.
+    var drawingsLayer = null;      // persisted shared drawings
+    var drawTempLayer = null;      // in-progress shape + guides
+    var activeDrawTool = null;     // current tool or null
+    var drawPoints = [];           // collected latlngs for line/polygon
+    var drawPreview = null;        // live preview shape while collecting
+    var drawRectStart = null;      // first corner for rectangle
+    var drawCircleCenter = null;   // center for circle
+    var drawCirclePreview = null;
+    var drawActiveStyle = null;    // style from the parent (selected color)
+
+    function ensureDrawLayers() {
+        if (!drawingsLayer) {
+            drawingsLayer = L.layerGroup().addTo(mymap);
+        }
+        if (!drawTempLayer) drawTempLayer = L.layerGroup().addTo(mymap);
+    }
+
+    function drawingStyle(style) {
+        style = style || {};
+        return {
+            color: style.color || '#ffde59',
+            weight: style.weight || 3,
+            opacity: style.opacity != null ? style.opacity : 0.9,
+            fillColor: style.fillColor || style.color || '#ffde59',
+            fillOpacity: style.fillOpacity != null ? style.fillOpacity : 0.25,
+            dashArray: style.dashArray || null
+        };
+    }
+
+    function latlngsToPlain(lls) {
+        var out = [];
+        for (var i = 0; i < lls.length; i++) out.push({lat: lls[i].lat, lng: lls[i].lng});
+        return out;
+    }
+
+    function plainToLatLng(arr) {
+        var out = [];
+        if (!arr) return out;
+        for (var i = 0; i < arr.length; i++) out.push(L.latLng(arr[i].lat, arr[i].lng));
+        return out;
+    }
+
+    function buildDrawingLayer(d) {
+        // Builds the Leaflet representation of a persisted drawing record.
+        var style = drawingStyle(d.style);
+        var layer = null;
+        switch (d.type) {
+            case 'marker': {
+                var p = d.coordinates && d.coordinates[0];
+                if (!p) return null;
+                layer = L.marker([p.lat, p.lng], {
+                    icon: L.divIcon({
+                        className: 'hw-drawing-marker',
+                        html: '<div class="hw-drawing-pin" style="--hw-draw-color:' + style.color + '">' +
+                              (d.label ? '<span class="hw-drawing-pin-label">' + escHtml(d.label) + '</span>' : '') +
+                              '</div>',
+                        iconSize: [18, 18],
+                        iconAnchor: [9, 9]
+                    })
+                });
+                break;
+            }
+            case 'line': {
+                var pts = plainToLatLng(d.coordinates);
+                if (pts.length < 2) return null;
+                layer = L.polyline(pts, style);
+                break;
+            }
+            case 'polygon': {
+                var poly = plainToLatLng(d.coordinates);
+                if (poly.length < 3) return null;
+                layer = L.polygon(poly, style);
+                break;
+            }
+            case 'circle': {
+                var c = d.coordinates && d.coordinates[0];
+                if (!c || !d.coordinates[1]) return null;
+                var center = L.latLng(c.lat, c.lng);
+                var edge = L.latLng(d.coordinates[1].lat, d.coordinates[1].lng);
+                layer = L.circle(center, {radius: center.distanceTo(edge), color: style.color, weight: style.weight, opacity: style.opacity, fillColor: style.fillColor, fillOpacity: style.fillOpacity});
+                break;
+            }
+            case 'rectangle': {
+                var b = d.coordinates;
+                if (!b || b.length < 2) return null;
+                layer = L.rectangle([L.latLng(b[0].lat, b[0].lng), L.latLng(b[1].lat, b[1].lng)], style);
+                break;
+            }
+            case 'text': {
+                var t = d.coordinates && d.coordinates[0];
+                if (!t) return null;
+                layer = L.marker([t.lat, t.lng], {
+                    icon: L.divIcon({
+                        className: 'hw-drawing-text',
+                        html: '<div class="hw-drawing-label" style="color:' + style.color + '">' + escHtml(d.label || '') + '</div>',
+                        iconSize: [0, 0],
+                        iconAnchor: [0, 8]
+                    }),
+                    interactive: false
+                });
+                break;
+            }
+            default:
+                return null;
+        }
+        if (layer && d.id != null) {
+            layer._drawingId = d.id;
+            if (layer.bindTooltip) {
+                var tip = d.type !== 'marker' && d.type !== 'text'
+                    ? (d.label ? d.label + ' — ' : '') + (d.user_name || '')
+                    : (d.user_name || '');
+                if (tip) layer.bindTooltip(escHtml(tip), {sticky: true});
+            }
+        }
+        return layer;
+    }
+
+    function handleSetDrawings(drawings) {
+        ensureDrawLayers();
+        drawingsLayer.clearLayers();
+        if (!drawings || !drawings.length) return;
+        for (var i = 0; i < drawings.length; i++) {
+            var layer = buildDrawingLayer(drawings[i]);
+            if (layer) drawingsLayer.addLayer(layer);
+        }
+    }
+
+    function setDrawTool(tool, style) {
+        cancelDrawTool();
+        if (!tool) { activeDrawTool = null; drawActiveStyle = null; return; }
+        ensureDrawLayers();
+        activeDrawTool = tool;
+        drawActiveStyle = style || null;
+        drawPoints = [];
+        drawRectStart = null;
+        drawCircleCenter = null;
+        mymap.doubleClickZoom.disable();
+    }
+
+    function cancelDrawTool() {
+        if (drawTempLayer) drawTempLayer.clearLayers();
+        drawPreview = null;
+        drawCirclePreview = null;
+        drawPoints = [];
+        drawRectStart = null;
+        drawCircleCenter = null;
+        mymap.doubleClickZoom.enable();
+    }
+
+    function finishDrawing(extra) {
+        var d = {
+            type: activeDrawTool,
+            coordinates: extra && extra.coordinates ? extra.coordinates : latlngsToPlain(drawPoints),
+            label: (extra && extra.label) || null,
+            style: (extra && extra.style) || drawActiveStyle || null
+        };
+        var tool = activeDrawTool;
+        var style = drawActiveStyle;
+        cancelDrawTool();
+        if (parentSource && typeof parentSource.postMessage === 'function') {
+            parentSource.postMessage({type: 'logiwaze:drawing-created', drawing: d}, '*');
+        }
+        if (tool) setDrawTool(tool, style); // stay in the same tool until switched off
+    }
+
+    function onDrawMapClick(e) {
+        if (!activeDrawTool) return;
+        var ll = e.latlng;
+        switch (activeDrawTool) {
+            case 'marker':
+                drawPoints = [ll];
+                finishDrawing();
+                break;
+            case 'text': {
+                drawPoints = [ll];
+                var label = window.prompt('Label text:');
+                if (label === null) { drawPoints = []; return; } // cancelled
+                if (label) finishDrawing({label: label});
+                break;
+            }
+            case 'line':
+            case 'polygon':
+                drawPoints.push(ll);
+                renderDrawPreview();
+                break;
+            case 'rectangle':
+                if (!drawRectStart) {
+                    drawRectStart = ll;
+                } else {
+                    drawPoints = [drawRectStart, ll];
+                    finishDrawing();
+                }
+                break;
+            case 'circle':
+                if (!drawCircleCenter) {
+                    drawCircleCenter = ll;
+                } else {
+                    drawPoints = [drawCircleCenter, ll];
+                    finishDrawing();
+                }
+                break;
+        }
+    }
+
+    function onDrawMouseMove(e) {
+        if (!activeDrawTool) return;
+        if (activeDrawTool === 'line' || activeDrawTool === 'polygon') {
+            renderDrawPreview(e.latlng);
+        } else if (activeDrawTool === 'circle' && drawCircleCenter) {
+            renderCirclePreview(drawCircleCenter, e.latlng);
+        } else if (activeDrawTool === 'rectangle' && drawRectStart) {
+            renderRectPreview(drawRectStart, e.latlng);
+        }
+    }
+
+    function renderDrawPreview(cursor) {
+        if (drawPreview) { drawTempLayer.removeLayer(drawPreview); drawPreview = null; }
+        if (!drawPoints.length) return;
+        var pts = drawPoints.slice();
+        if (cursor) pts.push(cursor);
+        drawPreview = activeDrawTool === 'polygon'
+            ? L.polygon(pts, {color: '#ffde59', weight: 2, dashArray: '6 6', fillOpacity: 0.1, interactive: false})
+            : L.polyline(pts, {color: '#ffde59', weight: 2, dashArray: '6 6', interactive: false});
+        drawPreview.addTo(drawTempLayer);
+        for (var i = 0; i < drawPoints.length; i++) {
+            L.circleMarker(drawPoints[i], {radius: 3, color: '#ffde59', fillOpacity: 1, weight: 1, interactive: false}).addTo(drawTempLayer);
+        }
+    }
+
+    function renderCirclePreview(center, edge) {
+        if (drawCirclePreview) { drawTempLayer.removeLayer(drawCirclePreview); drawCirclePreview = null; }
+        drawCirclePreview = L.circle(center, {
+            radius: center.distanceTo(edge),
+            color: '#ffde59', weight: 2, dashArray: '6 6', fillOpacity: 0.1, interactive: false
+        }).addTo(drawTempLayer);
+    }
+
+    function renderRectPreview(a, b) {
+        if (drawPreview) { drawTempLayer.removeLayer(drawPreview); drawPreview = null; }
+        drawPreview = L.rectangle([a, b], {color: '#ffde59', weight: 2, dashArray: '6 6', fillOpacity: 0.1, interactive: false}).addTo(drawTempLayer);
+    }
+
+    function onDrawDblClick() {
+        if (!activeDrawTool) return;
+        if ((activeDrawTool === 'line' && drawPoints.length >= 2) ||
+            (activeDrawTool === 'polygon' && drawPoints.length >= 3)) {
+            finishDrawing();
+        }
+    }
+
+    mymap.on('click', onDrawMapClick);
+    mymap.on('mousemove', onDrawMouseMove);
+    mymap.on('dblclick', onDrawDblClick);
+
     // ---- Waypoint setting ("From here" / "To here") -------------------------
     // Handled by the parent page's injected script (same proven mechanism as
     // the Preview button): it types into the LRM geocoder inputs and picks
@@ -2068,6 +2360,12 @@
             handleHighlightStorages((data && data.ids) || []);
         } else if (data.type === 'logiwaze:focus-storage') {
             handleFocusStorage(data && data.id);
+        } else if (data.type === 'logiwaze:set-tool') {
+            parentSource = ev.source || parentSource;
+            setDrawTool(data.tool || null, data.style || null);
+        } else if (data.type === 'logiwaze:set-drawings') {
+            parentSource = ev.source || parentSource;
+            handleSetDrawings((data && data.drawings) || []);
         }
     });
 

@@ -89,6 +89,12 @@ export default class API {
     public batchOwnership(worker: Worker | null, tests: { x: number, y: number, region: string }[]): Promise<number[]> {
         const thi = this;
 
+        // Variogram is only available after the war data download completes.
+        // Until then, return NaN instead of crashing worker / kriging code.
+        if (this.variogram == null) {
+            return new Promise<number[]>(resolve => resolve(tests.map(() => NaN)));
+        }
+
         if (worker == null) return new Promise<number[]>(resolve => {
             setTimeout(() => {
                 resolve(krig(
@@ -159,6 +165,7 @@ export default class API {
         53, 54,                          // Coastal Gun, Soul Factory
         70, 71, 72,                      // Rocket Target, Ground Zero, Site With Rocket
         83, 84,                          // Weather Station, Mortar House
+        11,                              // Hospital
         88, 89, 90, 91, 92,              // Aircraft Depot/Factory/Radar/Runway T1/T2 (1.63 Airborne)
     ]
 

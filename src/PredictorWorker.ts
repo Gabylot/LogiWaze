@@ -1,6 +1,11 @@
 import {variogramExponential} from "@sakitam-gis/kriging/src/utils";
 import {predict} from "@sakitam-gis/kriging";
 export default function krig(args): number[] {
+    if (args == null || args.variogram == null || args.tests == null) {
+        // Variogram not trained yet (war data still loading): nothing is predictable.
+        console.warn('PredictorWorker: missing variogram, returning NaN ownership');
+        return args && args.tests ? args.tests.map(() => NaN) : [];
+    }
     const variogram =
         {
             t: args.variogram.t,

@@ -274,6 +274,8 @@ module.exports.Create = async function (mymap, API) {
             icon = 'MapIconWeatherStation';
         else if (ic.icon == 84)
             icon = 'MapIconMortarHouse';
+        else if (ic.icon == 11)
+            icon = 'MapIconMedical';
         else
             return null;
 
@@ -794,12 +796,12 @@ module.exports.Create = async function (mymap, API) {
         },
 
         showSpecialBases: function () {
-            ControlLayer.enableIcons(['MapIconCoastalGun.webp', 'MapIconCoastalGunColonial.webp', 'MapIconCoastalGunWarden.webp', 'MapIconSoulFactory.webp', 'MapIconSoulFactoryColonial.webp', 'MapIconSoulFactoryWarden.webp', 'MapIconStormCannon.webp', 'MapIconStormCannonColonial.webp', 'MapIconStormCannonWarden.webp', 'MapIconIntelCenter.webp', 'MapIconIntelCenterColonial.webp', 'MapIconIntelCenterWarden.webp', 'MapIconWeatherStation.webp', 'MapIconWeatherStationColonial.webp', 'MapIconWeatherStationWarden.webp', 'MapIconMortarHouse.webp', 'MapIconMortarHouseColonial.webp', 'MapIconMortarHouseWarden.webp']);
+            ControlLayer.enableIcons(['MapIconCoastalGun.webp', 'MapIconCoastalGunColonial.webp', 'MapIconCoastalGunWarden.webp', 'MapIconSoulFactory.webp', 'MapIconSoulFactoryColonial.webp', 'MapIconSoulFactoryWarden.webp', 'MapIconStormCannon.webp', 'MapIconStormCannonColonial.webp', 'MapIconStormCannonWarden.webp', 'MapIconIntelCenter.webp', 'MapIconIntelCenterColonial.webp', 'MapIconIntelCenterWarden.webp', 'MapIconWeatherStation.webp', 'MapIconWeatherStationColonial.webp', 'MapIconWeatherStationWarden.webp', 'MapIconMortarHouse.webp', 'MapIconMortarHouseColonial.webp', 'MapIconMortarHouseWarden.webp', 'MapIconMedical.webp', 'MapIconMedicalColonial.webp', 'MapIconMedicalWarden.webp']);
             ControlLayer.redraw();
         },
 
         hideSpecialBases: function () {
-            ControlLayer.disableIcons(['MapIconCoastalGun.webp', 'MapIconCoastalGunColonial.webp', 'MapIconCoastalGunWarden.webp', 'MapIconSoulFactory.webp', 'MapIconSoulFactoryColonial.webp', 'MapIconSoulFactoryWarden.webp', 'MapIconStormCannon.webp', 'MapIconStormCannonColonial.webp', 'MapIconStormCannonWarden.webp', 'MapIconIntelCenter.webp', 'MapIconIntelCenterColonial.webp', 'MapIconIntelCenterWarden.webp', 'MapIconWeatherStation.webp', 'MapIconWeatherStationColonial.webp', 'MapIconWeatherStationWarden.webp', 'MapIconMortarHouse.webp', 'MapIconMortarHouseColonial.webp', 'MapIconMortarHouseWarden.webp']);
+            ControlLayer.disableIcons(['MapIconCoastalGun.webp', 'MapIconCoastalGunColonial.webp', 'MapIconCoastalGunWarden.webp', 'MapIconSoulFactory.webp', 'MapIconSoulFactoryColonial.webp', 'MapIconSoulFactoryWarden.webp', 'MapIconStormCannon.webp', 'MapIconStormCannonColonial.webp', 'MapIconStormCannonWarden.webp', 'MapIconIntelCenter.webp', 'MapIconIntelCenterColonial.webp', 'MapIconIntelCenterWarden.webp', 'MapIconWeatherStation.webp', 'MapIconWeatherStationColonial.webp', 'MapIconWeatherStationWarden.webp', 'MapIconMortarHouse.webp', 'MapIconMortarHouseColonial.webp', 'MapIconMortarHouseWarden.webp', 'MapIconMedical.webp', 'MapIconMedicalColonial.webp', 'MapIconMedicalWarden.webp']);
             ControlLayer.redraw();
         },
 

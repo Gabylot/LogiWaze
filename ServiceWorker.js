@@ -17779,18 +17779,67 @@ const assets = [
     // "Tiles/7_9_99.webp"
 ];
 
+// Bump this whenever the app shell changes, so returning browsers drop the
+// stale snapshot instead of serving a months-old index.html indefinitely.
+const CACHE_NAME = "logiwaze-v3";
+
 self.addEventListener("install", installEvent => {
     installEvent.waitUntil(
-        caches.open("logiwaze").then(cache => {
-            cache.addAll(assets);
+        caches.open(CACHE_NAME).then(cache => {
+            return cache.addAll(assets);
         })
     );
 });
 
+// Without an "activate" handler every previous cache is kept forever, and
+// with a cache-first fetch below the user never picks up a new build.
+self.addEventListener("activate", activateEvent => {
+    activateEvent.waitUntil(
+        caches.keys()
+            .then(keys => Promise.all(
+                keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))
+            ))
+            .then(() => self.clients.claim())
+    );
+});
+
 self.addEventListener("fetch", fetchEvent => {
+    const request = fetchEvent.request;
+
+    if (request.method !== "GET") {
+        return;
+    }
+
+    const url = new URL(request.url);
+
+    // Never cache the API: live map data must always come from the server.
+    if (url.pathname.includes("/api/")) {
+        fetchEvent.respondWith(fetch(request));
+        return;
+    }
+
+    // The app shell is network-first so a deploy is picked up on the next
+    // load, falling back to cache only when genuinely offline.
+    const isAppShell = url.pathname.endsWith("/")
+        || url.pathname.endsWith("/index.html")
+        || url.pathname.endsWith("/logiwaze")
+        || url.pathname.endsWith("/logiwaze/");
+
+    if (isAppShell) {
+        fetchEvent.respondWith(
+            fetch(request).then(response => {
+                const copy = response.clone();
+                caches.open(CACHE_NAME).then(cache => cache.put(request, copy));
+                return response;
+            }).catch(() => caches.match(request))
+        );
+        return;
+    }
+
+    // Static assets (tiles, icons, fonts) stay cache-first for speed.
     fetchEvent.respondWith(
-        caches.match(fetchEvent.request).then(res => {
-            return res || fetch(fetchEvent.request);
+        caches.match(request).then(res => {
+            return res || fetch(request);
         })
     );
 });

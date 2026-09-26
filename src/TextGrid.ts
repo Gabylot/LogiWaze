@@ -120,8 +120,10 @@ class TextGrid extends L.GridLayer {
 
             const ctx = tile.getContext('2d');
             const image = await data;
-            ctx.drawImage(image, 0, 0);
-            image.close();
+            if (image) {
+                ctx.drawImage(image, 0, 0);
+                image.close();
+            }
             done();
         }, 0);
         return tile;

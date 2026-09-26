@@ -183,6 +183,14 @@ export default class ControlGrid extends L.GridLayer {
                 });
             });
 
+        if (variogram == null) {
+            // War data not loaded yet: render an empty tile instead of crashing.
+            return new Promise<ImageBitmap>(resolve => {
+                const canvas = new OffscreenCanvas(tile.width, tile.height);
+                resolve(canvas.transferToImageBitmap());
+            });
+        }
+
         return control([cTempCanvasWidth, cTempCanvasHeight, hdRatio, grid.x, grid.y,
             {
                 coords: coords,
@@ -328,6 +336,13 @@ export default class ControlGrid extends L.GridLayer {
                 }
 
                 // initialize the worker data
+                if (API.variogram == null) {
+                    // War data not loaded yet — skip worker creation; the
+                    // main-thread fallback path will be used instead.
+                    console.warn('ControlGrid: skipping worker creation, variogram not loaded yet');
+                    resolve(null);
+                    return;
+                }
                 const workerIcons = [];
                 for (const [name, data] of icons)
                     workerIcons.push(

@@ -442,8 +442,16 @@ export async function text(args: {
 onmessage = async (e) => {
     try {
         const context = e.data as { operation: string, arguments: any };
+        if (context == null || typeof context !== "object" || !context.operation) {
+            // Ignore malformed/null messages instead of throwing (defensive)
+            return;
+        }
         switch (context.operation) {
             case "initialize": {
+                if (context.arguments.variogram == null) {
+                    console.warn('TileRenderWorker: initialize received without variogram; using empty variogram');
+                    context.arguments.variogram = { t: [], x: [], y: [], nugget: 0, range: 0, sill: 0, A: 0, n: 0, K: 0, M: 0 };
+                }
                 road_sources = context.arguments.roads;
                 variogram =
                     {
