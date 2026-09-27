@@ -220,7 +220,8 @@ Two things this settles:
   the 10 hexes the trace does not cover. Restricted to shared hexes the
   distributions are close. **This item is closed; do not re-raise it.**
 
-The turn excess is unchanged at 136%, and remains the open question.
+The turn excess is unchanged at 136% **per line**; the app-facing figure is
+resolved below.
 
 ### The pak geometry is sound. The turns are the whole story.
 
@@ -494,12 +495,16 @@ there matters, but the road is present.
 - **`all_roads.geojson` is unavailable**, so there is still no end-to-end comparison
   of the pak build against the *shipped* file. Everything measured here is pak vs
   the hand trace. This is the main remaining gap.
-- The tier *distribution* is still unchecked: the pak build is 1,917 / 1,042 / 764
-  across tiers 1/2/3, i.e. gravel-heavy, where the trace is far more evenly spread.
-  That may be correct (the game may genuinely have more gravel) or may mean roads
-  are read at the wrong detail level. Note this is a *distribution* question and
-  is unaffected by the geometry findings above.
+- The tier *distribution* was checked and **closed** — see "gravel-heavy" above.
+  Tier 1 is 20.9% against the trace's 24.5% on shared hexes. The raw
+  1,917/1,042/764 split compares 53 pak hexes against 43 traced ones and is not
+  a like-for-like comparison.
 - `RoadGreatMarch01` -> tier 1 is a judgement call, not evidence. Great March only.
+- `J:\pak_roads.geojson` is now committed to this branch as **`pak_roads.geojson`**
+  (3,723 features, 53 regions). The Linux box has no pak and cannot regenerate it,
+  so this file is the only copy of the extracted network — it is the input to
+  every check above. The Windows working copy `e:\LogiWaze-master` is *not* a git
+  repo and is not a substitute for it.
 
 **No longer blocking:**
 
