@@ -1,0 +1,3218 @@
+[
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.8621158740016639,
+  "status": "joined",
+  "lines": [
+   56,
+   64
+  ],
+  "region": "AcrithiaHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 1.1494513149997667,
+  "status": "joined",
+  "lines": [
+   1,
+   10
+  ],
+  "region": "AcrithiaHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 1.3611265405365067,
+  "status": "joined",
+  "lines": [
+   2,
+   7
+  ],
+  "region": "AcrithiaHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.7871417923201707,
+  "status": "joined",
+  "lines": [
+   12,
+   15
+  ],
+  "region": "AcrithiaHex"
+ },
+ {
+  "mesh": "BPDrawbridgeC_C",
+  "gap": 2.3357008028321182,
+  "status": "joined",
+  "lines": [
+   60,
+   55
+  ],
+  "region": "AcrithiaHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "AcrithiaHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "AcrithiaHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.614125245386944,
+  "status": "joined",
+  "lines": [
+   0,
+   1
+  ],
+  "region": "AllodsBightHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.5023038908584148,
+  "status": "joined",
+  "lines": [
+   0,
+   14
+  ],
+  "region": "AllodsBightHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.7331236720238051,
+  "status": "joined",
+  "lines": [
+   17,
+   15
+  ],
+  "region": "AllodsBightHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "AllodsBightHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "AllodsBightHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "AllodsBightHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.8226057535289065,
+  "status": "joined",
+  "lines": [
+   1,
+   12
+  ],
+  "region": "AshFieldsHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.8413916351308165,
+  "status": "joined",
+  "lines": [
+   71,
+   54
+  ],
+  "region": "AshFieldsHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.8641042591486765,
+  "status": "joined",
+  "lines": [
+   58,
+   66
+  ],
+  "region": "AshFieldsHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.8234105123314527,
+  "status": "joined",
+  "lines": [
+   9,
+   0
+  ],
+  "region": "AshFieldsHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.8738727051700257,
+  "status": "joined",
+  "lines": [
+   4,
+   51
+  ],
+  "region": "AshFieldsHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "AshFieldsHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "AshFieldsHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "AshFieldsHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.8006248282645387,
+  "status": "joined",
+  "lines": [
+   71,
+   68
+  ],
+  "region": "BasinSionnachHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 1.1414621449444629,
+  "status": "joined",
+  "lines": [
+   47,
+   95
+  ],
+  "region": "BasinSionnachHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 1.256276651927639,
+  "status": "joined",
+  "lines": [
+   78,
+   6
+  ],
+  "region": "BasinSionnachHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 2.034958981357127,
+  "status": "joined",
+  "lines": [
+   62,
+   78
+  ],
+  "region": "BasinSionnachHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.14652439481870896,
+  "status": "same-side",
+  "region": "BasinSionnachHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.14652439481870896,
+  "status": "joined",
+  "lines": [
+   17,
+   77
+  ],
+  "region": "BasinSionnachHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "BasinSionnachHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.49540405025265216,
+  "status": "joined",
+  "lines": [
+   35,
+   37
+  ],
+  "region": "CallahansPassageHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.48199339521189427,
+  "status": "joined",
+  "lines": [
+   113,
+   101
+  ],
+  "region": "CallahansPassageHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.3183156316073626,
+  "status": "joined",
+  "lines": [
+   34,
+   77
+  ],
+  "region": "CallahansPassageHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.1878101894878573,
+  "status": "joined",
+  "lines": [
+   76,
+   78
+  ],
+  "region": "CallahansPassageHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.35246842902601755,
+  "status": "joined",
+  "lines": [
+   79,
+   101
+  ],
+  "region": "CallahansPassageHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.0,
+  "status": "joined",
+  "lines": [
+   27,
+   72
+  ],
+  "region": "CallahansPassageHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "CallahansPassageHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.8083163784838102,
+  "status": "joined",
+  "lines": [
+   38,
+   39
+  ],
+  "region": "CallumsCapeHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 3.980099381270051,
+  "status": "joined",
+  "lines": [
+   50,
+   10
+  ],
+  "region": "CallumsCapeHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 2.9737587644231205,
+  "status": "joined",
+  "lines": [
+   53,
+   57
+  ],
+  "region": "CallumsCapeHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 3.747241127515723,
+  "status": "joined",
+  "lines": [
+   56,
+   32
+  ],
+  "region": "CallumsCapeHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 3.7930252046554473,
+  "status": "joined",
+  "lines": [
+   36,
+   8
+  ],
+  "region": "CallumsCapeHex"
+ },
+ {
+  "mesh": "BPTrainBridgeC_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "CallumsCapeHex"
+ },
+ {
+  "mesh": "BPTrainBridgeC_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "CallumsCapeHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.4820400072889683,
+  "status": "joined",
+  "lines": [
+   42,
+   43
+  ],
+  "region": "ClahstraHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.8085712786112672,
+  "status": "joined",
+  "lines": [
+   16,
+   18
+  ],
+  "region": "ClahstraHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.7990158866801366,
+  "status": "joined",
+  "lines": [
+   17,
+   46
+  ],
+  "region": "ClahstraHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.7685995687827031,
+  "status": "joined",
+  "lines": [
+   21,
+   20
+  ],
+  "region": "ClahstraHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.7350275241787229,
+  "status": "joined",
+  "lines": [
+   29,
+   2
+  ],
+  "region": "ClahstraHex"
+ },
+ {
+  "mesh": "BPDrawbridgeC_C",
+  "gap": 1.8886796433588784,
+  "status": "joined",
+  "lines": [
+   42,
+   45
+  ],
+  "region": "ClahstraHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "ClahstraHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "ClahstraHex"
+ },
+ {
+  "mesh": "BPTrainBridgeC_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "ClahstraHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.8693755765852891,
+  "status": "joined",
+  "lines": [
+   51,
+   71
+  ],
+  "region": "ClansheadValleyHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.9026888091317045,
+  "status": "joined",
+  "lines": [
+   48,
+   64
+  ],
+  "region": "ClansheadValleyHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.8873344909747781,
+  "status": "joined",
+  "lines": [
+   63,
+   45
+  ],
+  "region": "ClansheadValleyHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.8643983846653839,
+  "status": "joined",
+  "lines": [
+   50,
+   53
+  ],
+  "region": "ClansheadValleyHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "ClansheadValleyHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "ClansheadValleyHex"
+ },
+ {
+  "mesh": "BPConcreteBridge_C",
+  "gap": 0.6064117425106785,
+  "status": "joined",
+  "lines": [
+   86,
+   88
+  ],
+  "region": "DeadLandsHex"
+ },
+ {
+  "mesh": "BPConcreteBridge_C",
+  "gap": 0.6343306101033753,
+  "status": "same-side",
+  "region": "DeadLandsHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 2.2973592719904503,
+  "status": "joined",
+  "lines": [
+   92,
+   94
+  ],
+  "region": "DeadLandsHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.9354489411862295,
+  "status": "same-side",
+  "region": "DeadLandsHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.9157456207179925,
+  "status": "joined",
+  "lines": [
+   68,
+   33
+  ],
+  "region": "DeadLandsHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.8792408272722879,
+  "status": "joined",
+  "lines": [
+   83,
+   61
+  ],
+  "region": "DeadLandsHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.5717703224212175,
+  "status": "joined",
+  "lines": [
+   57,
+   53
+  ],
+  "region": "DeadLandsHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.5010150449633063,
+  "status": "joined",
+  "lines": [
+   0,
+   1
+  ],
+  "region": "DeadLandsHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.5840910173606066,
+  "status": "joined",
+  "lines": [
+   66,
+   60
+  ],
+  "region": "DeadLandsHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.4871472037086068,
+  "status": "joined",
+  "lines": [
+   72,
+   57
+  ],
+  "region": "DeadLandsHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.5441807233108668,
+  "status": "joined",
+  "lines": [
+   46,
+   89
+  ],
+  "region": "DeadLandsHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.6343306101033753,
+  "status": "same-side",
+  "region": "DeadLandsHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "DeadLandsHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "DeadLandsHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "DeadLandsHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "DeadLandsHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "DeadLandsHex"
+ },
+ {
+  "mesh": "BridgeStoneRamp_C",
+  "gap": 2.8184266687317128,
+  "status": "joined",
+  "lines": [
+   87,
+   88
+  ],
+  "region": "DeadLandsHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.7474499545509129,
+  "status": "joined",
+  "lines": [
+   12,
+   11
+  ],
+  "region": "DrownedValeHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.7571308951500236,
+  "status": "joined",
+  "lines": [
+   80,
+   64
+  ],
+  "region": "DrownedValeHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.8892154479056473,
+  "status": "joined",
+  "lines": [
+   74,
+   65
+  ],
+  "region": "DrownedValeHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.8016463810465373,
+  "status": "joined",
+  "lines": [
+   20,
+   18
+  ],
+  "region": "DrownedValeHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.7680567584783173,
+  "status": "joined",
+  "lines": [
+   40,
+   37
+  ],
+  "region": "DrownedValeHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.8592233896432647,
+  "status": "joined",
+  "lines": [
+   29,
+   66
+  ],
+  "region": "DrownedValeHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.895670690712559,
+  "status": "joined",
+  "lines": [
+   0,
+   6
+  ],
+  "region": "DrownedValeHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.7396349279305788,
+  "status": "joined",
+  "lines": [
+   7,
+   2
+  ],
+  "region": "DrownedValeHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.18808183923367236,
+  "status": "joined",
+  "lines": [
+   17,
+   18
+  ],
+  "region": "DrownedValeHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.16880343849187437,
+  "status": "same-side",
+  "region": "DrownedValeHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.1521206870726192,
+  "status": "same-side",
+  "region": "DrownedValeHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.16880343849187437,
+  "status": "joined",
+  "lines": [
+   24,
+   2
+  ],
+  "region": "DrownedValeHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "DrownedValeHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "DrownedValeHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "DrownedValeHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "DrownedValeHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "DrownedValeHex"
+ },
+ {
+  "mesh": "BridgeStoneBox_C",
+  "gap": 0.7866392056000633,
+  "status": "same-side",
+  "region": "DrownedValeHex"
+ },
+ {
+  "mesh": "BPConcreteBridge_C",
+  "gap": 0.4801745473847888,
+  "status": "joined",
+  "lines": [
+   98,
+   67
+  ],
+  "region": "EndlessShoreHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.07574752395928781,
+  "status": "same-side",
+  "region": "EndlessShoreHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.08948189316187195,
+  "status": "same-side",
+  "region": "EndlessShoreHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.6974128810145366,
+  "status": "joined",
+  "lines": [
+   66,
+   63
+  ],
+  "region": "EndlessShoreHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.7920340349899418,
+  "status": "joined",
+  "lines": [
+   84,
+   92
+  ],
+  "region": "EndlessShoreHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.7194693757693883,
+  "status": "joined",
+  "lines": [
+   76,
+   97
+  ],
+  "region": "EndlessShoreHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.6172348697165949,
+  "status": "joined",
+  "lines": [
+   49,
+   44
+  ],
+  "region": "EndlessShoreHex"
+ },
+ {
+  "mesh": "BPDrawbridgeC_C",
+  "gap": 1.651219929895903,
+  "status": "joined",
+  "lines": [
+   86,
+   88
+  ],
+  "region": "EndlessShoreHex"
+ },
+ {
+  "mesh": "BPDrawbridgeC_C",
+  "gap": 2.1559363577892316,
+  "status": "joined",
+  "lines": [
+   79,
+   78
+  ],
+  "region": "EndlessShoreHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.3561385296755382,
+  "status": "joined",
+  "lines": [
+   32,
+   39
+  ],
+  "region": "EndlessShoreHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.1842004081816719,
+  "status": "same-side",
+  "region": "EndlessShoreHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.16915035333026804,
+  "status": "joined",
+  "lines": [
+   101,
+   41
+  ],
+  "region": "EndlessShoreHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "EndlessShoreHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "EndlessShoreHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.6704732690433759,
+  "status": "joined",
+  "lines": [
+   16,
+   26
+  ],
+  "region": "FarranacCoastHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 1.1883501050643424,
+  "status": "same-side",
+  "region": "FarranacCoastHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 1.1883501050643424,
+  "status": "joined",
+  "lines": [
+   10,
+   39
+  ],
+  "region": "FarranacCoastHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.548691975855847,
+  "status": "joined",
+  "lines": [
+   29,
+   2
+  ],
+  "region": "FarranacCoastHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.435233784828453,
+  "status": "joined",
+  "lines": [
+   38,
+   61
+  ],
+  "region": "FarranacCoastHex"
+ },
+ {
+  "mesh": "BPDrawbridgeC_C",
+  "gap": 1.8738360801766323,
+  "status": "joined",
+  "lines": [
+   8,
+   60
+  ],
+  "region": "FarranacCoastHex"
+ },
+ {
+  "mesh": "BPDrawbridgeC_C",
+  "gap": 2.0515482253094612,
+  "status": "joined",
+  "lines": [
+   43,
+   47
+  ],
+  "region": "FarranacCoastHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "FarranacCoastHex"
+ },
+ {
+  "mesh": "BPTrainBridgeC_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "FarranacCoastHex"
+ },
+ {
+  "mesh": "BridgeStoneBox_C",
+  "gap": 0.9424942946471231,
+  "status": "joined",
+  "lines": [
+   29,
+   13
+  ],
+  "region": "FarranacCoastHex"
+ },
+ {
+  "mesh": "BridgeStoneBox_C",
+  "gap": 1.4956601718552782,
+  "status": "joined",
+  "lines": [
+   22,
+   22
+  ],
+  "region": "FarranacCoastHex"
+ },
+ {
+  "mesh": "BridgeStoneBox_C",
+  "gap": 0.23083539757713212,
+  "status": "same-side",
+  "region": "FarranacCoastHex"
+ },
+ {
+  "mesh": "BridgeStoneBox_C",
+  "gap": 0.23083539757713212,
+  "status": "same-side",
+  "region": "FarranacCoastHex"
+ },
+ {
+  "mesh": "BridgeStoneBox_C",
+  "gap": 0.23083539757713212,
+  "status": "same-side",
+  "region": "FarranacCoastHex"
+ },
+ {
+  "mesh": "BridgeStoneBox_C",
+  "gap": 0.23083539757713212,
+  "status": "same-side",
+  "region": "FarranacCoastHex"
+ },
+ {
+  "mesh": "BridgeStoneBox_C",
+  "gap": 3.2172065837730615,
+  "status": "joined",
+  "lines": [
+   48,
+   47
+  ],
+  "region": "FarranacCoastHex"
+ },
+ {
+  "mesh": "BridgeStoneBox_C",
+  "gap": 0.41194147776226064,
+  "status": "same-side",
+  "region": "FarranacCoastHex"
+ },
+ {
+  "mesh": "BridgeStoneBox_C",
+  "gap": 0.41194147776226064,
+  "status": "joined",
+  "lines": [
+   31,
+   12
+  ],
+  "region": "FarranacCoastHex"
+ },
+ {
+  "mesh": "BridgeStoneBox_C",
+  "gap": 1.3002582044836468,
+  "status": "same-side",
+  "region": "FarranacCoastHex"
+ },
+ {
+  "mesh": "BridgeStoneBox_C",
+  "gap": 0.028553639287047173,
+  "status": "same-side",
+  "region": "FarranacCoastHex"
+ },
+ {
+  "mesh": "BridgeStoneBox_C",
+  "gap": 2.473101353875363,
+  "status": "joined",
+  "lines": [
+   54,
+   1
+  ],
+  "region": "FarranacCoastHex"
+ },
+ {
+  "mesh": "BridgeStoneBox_C",
+  "gap": 1.808920422913872,
+  "status": "joined",
+  "lines": [
+   13,
+   27
+  ],
+  "region": "FarranacCoastHex"
+ },
+ {
+  "mesh": "BridgeStoneBox_C",
+  "gap": 0.3121949262092575,
+  "status": "same-side",
+  "region": "FarranacCoastHex"
+ },
+ {
+  "mesh": "BridgeStoneBox_C",
+  "gap": 0.3121949262092575,
+  "status": "same-side",
+  "region": "FarranacCoastHex"
+ },
+ {
+  "mesh": "BridgeStoneBox_C",
+  "gap": 0.3121949262092575,
+  "status": "same-side",
+  "region": "FarranacCoastHex"
+ },
+ {
+  "mesh": "BridgeStoneBox_C",
+  "gap": 0.3121949262092575,
+  "status": "same-side",
+  "region": "FarranacCoastHex"
+ },
+ {
+  "mesh": "BridgeStoneBox_C",
+  "gap": 0.0,
+  "status": "joined",
+  "lines": [
+   26,
+   52
+  ],
+  "region": "FarranacCoastHex"
+ },
+ {
+  "mesh": "BridgeStoneRamp_C",
+  "gap": 4.2354281553931585,
+  "status": "joined",
+  "lines": [
+   2,
+   59
+  ],
+  "region": "FarranacCoastHex"
+ },
+ {
+  "mesh": "BridgeStoneRamp_C",
+  "gap": 0.8152187156885612,
+  "status": "same-side",
+  "region": "FarranacCoastHex"
+ },
+ {
+  "mesh": "BridgeStoneRamp_C",
+  "gap": 0.8152187156885612,
+  "status": "same-side",
+  "region": "FarranacCoastHex"
+ },
+ {
+  "mesh": "BridgeStoneRamp_C",
+  "gap": 0.7714665282711778,
+  "status": "same-side",
+  "region": "FarranacCoastHex"
+ },
+ {
+  "mesh": "BridgeStoneRamp_C",
+  "gap": 4.657691621886273,
+  "status": "joined",
+  "lines": [
+   33,
+   42
+  ],
+  "region": "FarranacCoastHex"
+ },
+ {
+  "mesh": "BPConcreteBridge_C",
+  "gap": 0.4980284840498266,
+  "status": "joined",
+  "lines": [
+   3,
+   23
+  ],
+  "region": "FishermansRowHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.6758452914974391,
+  "status": "same-side",
+  "region": "FishermansRowHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.6186330559633029,
+  "status": "joined",
+  "lines": [
+   16,
+   15
+  ],
+  "region": "GodcroftsHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.6847184413792675,
+  "status": "joined",
+  "lines": [
+   5,
+   12
+  ],
+  "region": "GodcroftsHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.6848604580150588,
+  "status": "joined",
+  "lines": [
+   11,
+   24
+  ],
+  "region": "GodcroftsHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.16623577724755945,
+  "status": "joined",
+  "lines": [
+   20,
+   22
+  ],
+  "region": "GodcroftsHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.18468978773863715,
+  "status": "joined",
+  "lines": [
+   20,
+   21
+  ],
+  "region": "GodcroftsHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.8816990011493444,
+  "status": "same-side",
+  "region": "GodcroftsHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.0,
+  "status": "joined",
+  "lines": [
+   6,
+   23
+  ],
+  "region": "GodcroftsHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.30193008895784695,
+  "status": "joined",
+  "lines": [
+   24,
+   25
+  ],
+  "region": "GodcroftsHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.1535458421855925,
+  "status": "same-side",
+  "region": "GodcroftsHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.1535458421855925,
+  "status": "same-side",
+  "region": "GodcroftsHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.1535458421855925,
+  "status": "same-side",
+  "region": "GodcroftsHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.15138434993344557,
+  "status": "joined",
+  "lines": [
+   19,
+   18
+  ],
+  "region": "GodcroftsHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.5530120706992198,
+  "status": "joined",
+  "lines": [
+   19,
+   18
+  ],
+  "region": "GodcroftsHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 1.2844254105862254,
+  "status": "same-side",
+  "region": "GodcroftsHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 1.2844254105862254,
+  "status": "same-side",
+  "region": "GodcroftsHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.6278047855601775,
+  "status": "joined",
+  "lines": [
+   10,
+   14
+  ],
+  "region": "GodcroftsHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 1.2817326746760875,
+  "status": "joined",
+  "lines": [
+   22,
+   14
+  ],
+  "region": "GodcroftsHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.2605020913636642,
+  "status": "joined",
+  "lines": [
+   21,
+   7
+  ],
+  "region": "GodcroftsHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.22084358028635998,
+  "status": "same-side",
+  "region": "GodcroftsHex"
+ },
+ {
+  "mesh": "BridgeStoneRamp_C",
+  "gap": 0.05403140946627749,
+  "status": "same-side",
+  "region": "GodcroftsHex"
+ },
+ {
+  "mesh": "BPConcreteBridge_C",
+  "gap": 0.4834309875709173,
+  "status": "joined",
+  "lines": [
+   38,
+   98
+  ],
+  "region": "GreatMarchHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.6737644486868792,
+  "status": "joined",
+  "lines": [
+   101,
+   100
+  ],
+  "region": "GreatMarchHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.11007262377439188,
+  "status": "same-side",
+  "region": "GreatMarchHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.18253414580822958,
+  "status": "same-side",
+  "region": "GreatMarchHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.18253414580822958,
+  "status": "same-side",
+  "region": "GreatMarchHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "GreatMarchHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.8738336226935249,
+  "status": "joined",
+  "lines": [
+   9,
+   11
+  ],
+  "region": "GutterHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.6511047869029097,
+  "status": "joined",
+  "lines": [
+   22,
+   25
+  ],
+  "region": "GutterHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.6500711130512867,
+  "status": "joined",
+  "lines": [
+   22,
+   21
+  ],
+  "region": "GutterHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.6693817335261324,
+  "status": "joined",
+  "lines": [
+   8,
+   11
+  ],
+  "region": "GutterHex"
+ },
+ {
+  "mesh": "BPTrainBridgeC_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "GutterHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.7109021474216458,
+  "status": "joined",
+  "lines": [
+   33,
+   79
+  ],
+  "region": "HowlCountyHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.8252250426653381,
+  "status": "joined",
+  "lines": [
+   49,
+   83
+  ],
+  "region": "HowlCountyHex"
+ },
+ {
+  "mesh": "BPDrawbridgeC_C",
+  "gap": 2.192994552179447,
+  "status": "joined",
+  "lines": [
+   78,
+   76
+  ],
+  "region": "HowlCountyHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "HowlCountyHex"
+ },
+ {
+  "mesh": "BPTrainBridgeC_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "HowlCountyHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.17270120091019056,
+  "status": "same-side",
+  "region": "KalokaiHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.8503642171499483,
+  "status": "joined",
+  "lines": [
+   20,
+   4
+  ],
+  "region": "KalokaiHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.9195910354636742,
+  "status": "joined",
+  "lines": [
+   38,
+   37
+  ],
+  "region": "KalokaiHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.940586387614074,
+  "status": "joined",
+  "lines": [
+   35,
+   16
+  ],
+  "region": "KalokaiHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "KalokaiHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "KalokaiHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.7326000545182241,
+  "status": "joined",
+  "lines": [
+   10,
+   11
+  ],
+  "region": "KingsCageHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.6188607391894386,
+  "status": "joined",
+  "lines": [
+   36,
+   16
+  ],
+  "region": "KingsCageHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.7501286213559115,
+  "status": "joined",
+  "lines": [
+   32,
+   31
+  ],
+  "region": "KingsCageHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.6699498442769827,
+  "status": "joined",
+  "lines": [
+   3,
+   11
+  ],
+  "region": "KingsCageHex"
+ },
+ {
+  "mesh": "BPDrawbridgeC_C",
+  "gap": 2.1759242273828696,
+  "status": "joined",
+  "lines": [
+   30,
+   4
+  ],
+  "region": "KingsCageHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.1805149905446889,
+  "status": "same-side",
+  "region": "KingsCageHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "KingsCageHex"
+ },
+ {
+  "mesh": "BPTrainBridgeC_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "KingsCageHex"
+ },
+ {
+  "mesh": "BPTrainBridgeC_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "KingsCageHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.9344262421623761,
+  "status": "joined",
+  "lines": [
+   39,
+   29
+  ],
+  "region": "KuuraStrandHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.7912644385602349,
+  "status": "joined",
+  "lines": [
+   5,
+   9
+  ],
+  "region": "KuuraStrandHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.3032864608957599,
+  "status": "joined",
+  "lines": [
+   6,
+   10
+  ],
+  "region": "KuuraStrandHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.3235237682806474,
+  "status": "same-side",
+  "region": "KuuraStrandHex"
+ },
+ {
+  "mesh": "BPConcreteBridge_C",
+  "gap": 0.611210992923962,
+  "status": "joined",
+  "lines": [
+   65,
+   63
+  ],
+  "region": "LinnMercyHex"
+ },
+ {
+  "mesh": "BPConcreteBridge_C",
+  "gap": 0.6381422321563635,
+  "status": "joined",
+  "lines": [
+   37,
+   99
+  ],
+  "region": "LinnMercyHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.7598090023775431,
+  "status": "joined",
+  "lines": [
+   84,
+   67
+  ],
+  "region": "LinnMercyHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.7212634131871232,
+  "status": "joined",
+  "lines": [
+   29,
+   14
+  ],
+  "region": "LinnMercyHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.7745717926922929,
+  "status": "joined",
+  "lines": [
+   33,
+   96
+  ],
+  "region": "LinnMercyHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.786143334840277,
+  "status": "joined",
+  "lines": [
+   83,
+   62
+  ],
+  "region": "LinnMercyHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.6437438045772447,
+  "status": "joined",
+  "lines": [
+   17,
+   18
+  ],
+  "region": "LinnMercyHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.09336669021296501,
+  "status": "same-side",
+  "region": "LinnMercyHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.0,
+  "status": "joined",
+  "lines": [
+   36,
+   100
+  ],
+  "region": "LinnMercyHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.3841352015641251,
+  "status": "joined",
+  "lines": [
+   101,
+   101
+  ],
+  "region": "LinnMercyHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.3647417118767777,
+  "status": "joined",
+  "lines": [
+   47,
+   11
+  ],
+  "region": "LinnMercyHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 2.9143380865859814,
+  "status": "joined",
+  "lines": [
+   29,
+   48
+  ],
+  "region": "LinnMercyHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.20714065595986958,
+  "status": "same-side",
+  "region": "LinnMercyHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.18467318569419547,
+  "status": "same-side",
+  "region": "LinnMercyHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "LinnMercyHex"
+ },
+ {
+  "mesh": "BridgeStoneRamp_C",
+  "gap": 0.1231973953393954,
+  "status": "same-side",
+  "region": "LinnMercyHex"
+ },
+ {
+  "mesh": "BridgeStoneRamp_C",
+  "gap": 0.13087850636243376,
+  "status": "same-side",
+  "region": "LinnMercyHex"
+ },
+ {
+  "mesh": "BridgeStoneRamp_C",
+  "gap": 0.1816369079795124,
+  "status": "same-side",
+  "region": "LinnMercyHex"
+ },
+ {
+  "mesh": "BridgeStoneRamp_C",
+  "gap": 0.32050994602356914,
+  "status": "same-side",
+  "region": "LinnMercyHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.7490837359745147,
+  "status": "joined",
+  "lines": [
+   90,
+   85
+  ],
+  "region": "LochMorHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.7512500627820206,
+  "status": "joined",
+  "lines": [
+   96,
+   0
+  ],
+  "region": "LochMorHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.7506048493956181,
+  "status": "joined",
+  "lines": [
+   78,
+   79
+  ],
+  "region": "LochMorHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "LochMorHex"
+ },
+ {
+  "mesh": "BPTrainBridgeC_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "LochMorHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.9396712410645799,
+  "status": "joined",
+  "lines": [
+   3,
+   0
+  ],
+  "region": "LykosIsleHex"
+ },
+ {
+  "mesh": "BridgeStoneBox_C",
+  "gap": 2.2472612115085338,
+  "status": "joined",
+  "lines": [
+   0,
+   4
+  ],
+  "region": "LykosIsleHex"
+ },
+ {
+  "mesh": "BridgeStoneBox_C",
+  "gap": 0.776621144507694,
+  "status": "same-side",
+  "region": "LykosIsleHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 1.585535993081732,
+  "status": "joined",
+  "lines": [
+   44,
+   23
+  ],
+  "region": "MarbanHollow"
+ },
+ {
+  "mesh": "BPDrawbridgeC_C",
+  "gap": 2.230147649479065,
+  "status": "joined",
+  "lines": [
+   61,
+   6
+  ],
+  "region": "MarbanHollow"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.31926774526286783,
+  "status": "joined",
+  "lines": [
+   44,
+   43
+  ],
+  "region": "MarbanHollow"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.0,
+  "status": "joined",
+  "lines": [
+   43,
+   95
+  ],
+  "region": "MarbanHollow"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "MarbanHollow"
+ },
+ {
+  "mesh": "BPTrainBridgeC_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "MarbanHollow"
+ },
+ {
+  "mesh": "BridgeStoneRamp_C",
+  "gap": 0.2452279136549231,
+  "status": "joined",
+  "lines": [
+   46,
+   45
+  ],
+  "region": "MarbanHollow"
+ },
+ {
+  "mesh": "BridgeStoneRamp_C",
+  "gap": 1.1503624351433064,
+  "status": "joined",
+  "lines": [
+   95,
+   46
+  ],
+  "region": "MarbanHollow"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.4553380711836906,
+  "status": "joined",
+  "lines": [
+   113,
+   115
+  ],
+  "region": "MooringCountyHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.5802769382205428,
+  "status": "joined",
+  "lines": [
+   89,
+   78
+  ],
+  "region": "MooringCountyHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "MooringCountyHex"
+ },
+ {
+  "mesh": "BPTrenchBridge_C",
+  "gap": 1.4029175515765673,
+  "status": "joined",
+  "lines": [
+   4,
+   82
+  ],
+  "region": "MooringCountyHex"
+ },
+ {
+  "mesh": "BPTrenchBridge_C",
+  "gap": 0.3149798510445014,
+  "status": "joined",
+  "lines": [
+   54,
+   6
+  ],
+  "region": "MooringCountyHex"
+ },
+ {
+  "mesh": "BPTrenchBridge_C",
+  "gap": 1.8059417692464232,
+  "status": "joined",
+  "lines": [
+   54,
+   55
+  ],
+  "region": "MooringCountyHex"
+ },
+ {
+  "mesh": "BPTrenchBridge_C",
+  "gap": 0.313844855212044,
+  "status": "joined",
+  "lines": [
+   31,
+   30
+  ],
+  "region": "MooringCountyHex"
+ },
+ {
+  "mesh": "BPTrenchBridge_C",
+  "gap": 0.3837091860290757,
+  "status": "same-side",
+  "region": "MooringCountyHex"
+ },
+ {
+  "mesh": "BPTrenchBridge_C",
+  "gap": 1.8264509224571601,
+  "status": "same-side",
+  "region": "MooringCountyHex"
+ },
+ {
+  "mesh": "BPTrenchBridge_C",
+  "gap": 1.8264509224571601,
+  "status": "same-side",
+  "region": "MooringCountyHex"
+ },
+ {
+  "mesh": "BPTrenchBridge_C",
+  "gap": 0.30649924835479603,
+  "status": "joined",
+  "lines": [
+   79,
+   81
+  ],
+  "region": "MooringCountyHex"
+ },
+ {
+  "mesh": "BPTrenchBridge_C",
+  "gap": 1.1960703760632712,
+  "status": "joined",
+  "lines": [
+   83,
+   82
+  ],
+  "region": "MooringCountyHex"
+ },
+ {
+  "mesh": "BPTrenchBridge_C",
+  "gap": 1.796060013844196,
+  "status": "same-side",
+  "region": "MooringCountyHex"
+ },
+ {
+  "mesh": "BPTrenchBridge_C",
+  "gap": 1.796060013844196,
+  "status": "same-side",
+  "region": "MooringCountyHex"
+ },
+ {
+  "mesh": "BPTrenchBridge_C",
+  "gap": 0.08856333604210481,
+  "status": "same-side",
+  "region": "MooringCountyHex"
+ },
+ {
+  "mesh": "BPTrenchBridge_C",
+  "gap": 0.3180642485753903,
+  "status": "joined",
+  "lines": [
+   70,
+   75
+  ],
+  "region": "MooringCountyHex"
+ },
+ {
+  "mesh": "BPTrenchBridge_C",
+  "gap": 0.08856333604210481,
+  "status": "same-side",
+  "region": "MooringCountyHex"
+ },
+ {
+  "mesh": "BPTrenchBridge_C",
+  "gap": 0.30397213903057296,
+  "status": "joined",
+  "lines": [
+   70,
+   72
+  ],
+  "region": "MooringCountyHex"
+ },
+ {
+  "mesh": "BPTrenchBridge_C",
+  "gap": 0.6495684524476476,
+  "status": "same-side",
+  "region": "MooringCountyHex"
+ },
+ {
+  "mesh": "BPTrenchBridge_C",
+  "gap": 0.11103355268204829,
+  "status": "same-side",
+  "region": "MooringCountyHex"
+ },
+ {
+  "mesh": "BPTrenchBridge_C",
+  "gap": 0.29907069152141447,
+  "status": "joined",
+  "lines": [
+   129,
+   22
+  ],
+  "region": "MooringCountyHex"
+ },
+ {
+  "mesh": "BPTrenchBridge_C",
+  "gap": 0.11848949441480815,
+  "status": "same-side",
+  "region": "MooringCountyHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.49024579098734045,
+  "status": "joined",
+  "lines": [
+   17,
+   6
+  ],
+  "region": "MorgensCrossingHex"
+ },
+ {
+  "mesh": "BPTrainBridgeC_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "MorgensCrossingHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.8600840168572769,
+  "status": "joined",
+  "lines": [
+   15,
+   14
+  ],
+  "region": "NevishLineHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.6658619859733839,
+  "status": "joined",
+  "lines": [
+   4,
+   3
+  ],
+  "region": "NevishLineHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.6878432634220044,
+  "status": "joined",
+  "lines": [
+   70,
+   50
+  ],
+  "region": "NevishLineHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.8115800170105478,
+  "status": "joined",
+  "lines": [
+   15,
+   89
+  ],
+  "region": "NevishLineHex"
+ },
+ {
+  "mesh": "BPDrawbridgeC_C",
+  "gap": 2.3388407759420553,
+  "status": "joined",
+  "lines": [
+   37,
+   77
+  ],
+  "region": "NevishLineHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 2.4289252710023277,
+  "status": "joined",
+  "lines": [
+   43,
+   5
+  ],
+  "region": "NevishLineHex"
+ },
+ {
+  "mesh": "BPTrainBridgeC_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "NevishLineHex"
+ },
+ {
+  "mesh": "BPTrainBridgeC_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "NevishLineHex"
+ },
+ {
+  "mesh": "BPConcreteBridge_C",
+  "gap": 1.1169012036889903,
+  "status": "joined",
+  "lines": [
+   1,
+   4
+  ],
+  "region": "OlavisWakeHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.13011329353279885,
+  "status": "same-side",
+  "region": "OlavisWakeHex"
+ },
+ {
+  "mesh": "BPDrawbridgeC_C",
+  "gap": 2.1061130964675954,
+  "status": "joined",
+  "lines": [
+   1,
+   0
+  ],
+  "region": "OlavisWakeHex"
+ },
+ {
+  "mesh": "BPDrawbridgeC_C",
+  "gap": 3.300520990009395,
+  "status": "same-side",
+  "region": "OlavisWakeHex"
+ },
+ {
+  "mesh": "BPTrainBridgeC_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "OlavisWakeHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.643838542403445,
+  "status": "joined",
+  "lines": [
+   5,
+   0
+  ],
+  "region": "OnyxHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.6990206547229251,
+  "status": "joined",
+  "lines": [
+   36,
+   29
+  ],
+  "region": "OnyxHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.7886256955365006,
+  "status": "joined",
+  "lines": [
+   6,
+   9
+  ],
+  "region": "OnyxHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.7932109065562393,
+  "status": "joined",
+  "lines": [
+   2,
+   9
+  ],
+  "region": "OnyxHex"
+ },
+ {
+  "mesh": "BPDrawbridgeC_C",
+  "gap": 2.238780945867291,
+  "status": "joined",
+  "lines": [
+   13,
+   5
+  ],
+  "region": "OnyxHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "OnyxHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "OnyxHex"
+ },
+ {
+  "mesh": "BPTrainBridgeC_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "OnyxHex"
+ },
+ {
+  "mesh": "BPDrawbridgeC_C",
+  "gap": 2.052511409323321,
+  "status": "joined",
+  "lines": [
+   18,
+   5
+  ],
+  "region": "OriginHex"
+ },
+ {
+  "mesh": "BPTrainBridgeC_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "OriginHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.7486719857391624,
+  "status": "joined",
+  "lines": [
+   21,
+   20
+  ],
+  "region": "PariPeakHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "PariPeakHex"
+ },
+ {
+  "mesh": "BPTrainBridgeC_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "PariPeakHex"
+ },
+ {
+  "mesh": "BPTrainBridgeC_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "PariPeakHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.6473865219898111,
+  "status": "same-side",
+  "region": "PipersEnclaveHex"
+ },
+ {
+  "mesh": "BPDrawbridgeC_C",
+  "gap": 1.987782769180571,
+  "status": "joined",
+  "lines": [
+   4,
+   15
+  ],
+  "region": "PipersEnclaveHex"
+ },
+ {
+  "mesh": "BPTrainBridgeC_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "PipersEnclaveHex"
+ },
+ {
+  "mesh": "BPTrainBridgeC_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "PipersEnclaveHex"
+ },
+ {
+  "mesh": "BPConcreteBridge_C",
+  "gap": 0.48906703674034696,
+  "status": "joined",
+  "lines": [
+   68,
+   69
+  ],
+  "region": "ReachingTrailHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.28536217818998333,
+  "status": "same-side",
+  "region": "ReachingTrailHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.1450279498348238,
+  "status": "joined",
+  "lines": [
+   1,
+   22
+  ],
+  "region": "ReachingTrailHex"
+ },
+ {
+  "mesh": "BPTrenchBridge_C",
+  "gap": 0.32250974006756944,
+  "status": "joined",
+  "lines": [
+   102,
+   103
+  ],
+  "region": "ReachingTrailHex"
+ },
+ {
+  "mesh": "BPTrenchBridge_C",
+  "gap": 0.31888713657367695,
+  "status": "joined",
+  "lines": [
+   17,
+   19
+  ],
+  "region": "ReachingTrailHex"
+ },
+ {
+  "mesh": "BPTrenchBridge_C",
+  "gap": 0.0,
+  "status": "joined",
+  "lines": [
+   20,
+   20
+  ],
+  "region": "ReachingTrailHex"
+ },
+ {
+  "mesh": "BPTrenchBridge_C",
+  "gap": 0.574557920296351,
+  "status": "joined",
+  "lines": [
+   98,
+   101
+  ],
+  "region": "ReachingTrailHex"
+ },
+ {
+  "mesh": "BPTrenchBridge_C",
+  "gap": 0.6936792702844723,
+  "status": "same-side",
+  "region": "ReachingTrailHex"
+ },
+ {
+  "mesh": "BPTrenchBridge_C",
+  "gap": 0.9720201031021765,
+  "status": "joined",
+  "lines": [
+   102,
+   108
+  ],
+  "region": "ReachingTrailHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.8576891677036196,
+  "status": "joined",
+  "lines": [
+   30,
+   32
+  ],
+  "region": "ReaversPassHex"
+ },
+ {
+  "mesh": "BPDrawbridgeC_C",
+  "gap": 2.1887724423618846,
+  "status": "joined",
+  "lines": [
+   33,
+   31
+  ],
+  "region": "ReaversPassHex"
+ },
+ {
+  "mesh": "BPTrainBridgeC_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "ReaversPassHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.8510835312775965,
+  "status": "joined",
+  "lines": [
+   74,
+   75
+  ],
+  "region": "RedRiverHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.8385457039612412,
+  "status": "joined",
+  "lines": [
+   31,
+   72
+  ],
+  "region": "RedRiverHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.8680794497408681,
+  "status": "joined",
+  "lines": [
+   55,
+   22
+  ],
+  "region": "RedRiverHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 1.0174686833934137,
+  "status": "joined",
+  "lines": [
+   62,
+   69
+  ],
+  "region": "RedRiverHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.865246319954053,
+  "status": "joined",
+  "lines": [
+   1,
+   4
+  ],
+  "region": "RedRiverHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.8782817136924649,
+  "status": "joined",
+  "lines": [
+   59,
+   17
+  ],
+  "region": "RedRiverHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.8630084659908315,
+  "status": "joined",
+  "lines": [
+   0,
+   71
+  ],
+  "region": "RedRiverHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.884816059264178,
+  "status": "joined",
+  "lines": [
+   33,
+   39
+  ],
+  "region": "RedRiverHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "RedRiverHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "RedRiverHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "RedRiverHex"
+ },
+ {
+  "mesh": "BPConcreteBridge_C",
+  "gap": 0.42011624611604825,
+  "status": "joined",
+  "lines": [
+   39,
+   34
+  ],
+  "region": "ShackledChasmHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.8065634281994347,
+  "status": "joined",
+  "lines": [
+   3,
+   73
+  ],
+  "region": "ShackledChasmHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.826654513436743,
+  "status": "joined",
+  "lines": [
+   33,
+   50
+  ],
+  "region": "ShackledChasmHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.844099192155727,
+  "status": "joined",
+  "lines": [
+   0,
+   21
+  ],
+  "region": "ShackledChasmHex"
+ },
+ {
+  "mesh": "BPDrawbridgeC_C",
+  "gap": 1.5138074117291074,
+  "status": "joined",
+  "lines": [
+   32,
+   30
+  ],
+  "region": "ShackledChasmHex"
+ },
+ {
+  "mesh": "BPDrawbridgeC_C",
+  "gap": 0.21140886084541038,
+  "status": "same-side",
+  "region": "ShackledChasmHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.16642179755007308,
+  "status": "same-side",
+  "region": "ShackledChasmHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.16642179755007308,
+  "status": "same-side",
+  "region": "ShackledChasmHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.16642179755007308,
+  "status": "same-side",
+  "region": "ShackledChasmHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.16642179755007308,
+  "status": "same-side",
+  "region": "ShackledChasmHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "ShackledChasmHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "ShackledChasmHex"
+ },
+ {
+  "mesh": "BPTrainBridgeC_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "ShackledChasmHex"
+ },
+ {
+  "mesh": "BridgeStoneBox_C",
+  "gap": 0.1808622507936988,
+  "status": "same-side",
+  "region": "ShackledChasmHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.8719451087302381,
+  "status": "joined",
+  "lines": [
+   64,
+   66
+  ],
+  "region": "SpeakingWoodsHex"
+ },
+ {
+  "mesh": "BPDrawbridgeC_C",
+  "gap": 2.328672598855212,
+  "status": "joined",
+  "lines": [
+   100,
+   82
+  ],
+  "region": "SpeakingWoodsHex"
+ },
+ {
+  "mesh": "BPDrawbridgeC_C",
+  "gap": 2.0806323703209944,
+  "status": "joined",
+  "lines": [
+   33,
+   2
+  ],
+  "region": "SpeakingWoodsHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.37718712657197806,
+  "status": "joined",
+  "lines": [
+   56,
+   54
+  ],
+  "region": "SpeakingWoodsHex"
+ },
+ {
+  "mesh": "BPTrainBridgeC_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "SpeakingWoodsHex"
+ },
+ {
+  "mesh": "BPConcreteBridge_C",
+  "gap": 0.41254825393991235,
+  "status": "joined",
+  "lines": [
+   1,
+   5
+  ],
+  "region": "StlicanShelfHex"
+ },
+ {
+  "mesh": "BridgeStoneRamp_C",
+  "gap": 0.6175344795548732,
+  "status": "same-side",
+  "region": "StlicanShelfHex"
+ },
+ {
+  "mesh": "BridgeStoneRamp_C",
+  "gap": 0.6175344795548732,
+  "status": "same-side",
+  "region": "StlicanShelfHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.7729413512514446,
+  "status": "joined",
+  "lines": [
+   13,
+   50
+  ],
+  "region": "StonecradleHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.701621206816045,
+  "status": "joined",
+  "lines": [
+   20,
+   5
+  ],
+  "region": "StonecradleHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 1.009069999756208,
+  "status": "joined",
+  "lines": [
+   7,
+   33
+  ],
+  "region": "StonecradleHex"
+ },
+ {
+  "mesh": "BPDrawbridgeC_C",
+  "gap": 1.550454699066376,
+  "status": "joined",
+  "lines": [
+   19,
+   34
+  ],
+  "region": "StonecradleHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "StonecradleHex"
+ },
+ {
+  "mesh": "BPTrainBridgeC_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "StonecradleHex"
+ },
+ {
+  "mesh": "BPConcreteBridge_C",
+  "gap": 0.5516571012645618,
+  "status": "joined",
+  "lines": [
+   27,
+   25
+  ],
+  "region": "TempestIslandHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.6436803109169451,
+  "status": "joined",
+  "lines": [
+   6,
+   7
+  ],
+  "region": "TempestIslandHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.4768055639824754,
+  "status": "joined",
+  "lines": [
+   5,
+   2
+  ],
+  "region": "TempestIslandHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.4857584440307293,
+  "status": "joined",
+  "lines": [
+   40,
+   42
+  ],
+  "region": "TempestIslandHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.6370503030481284,
+  "status": "joined",
+  "lines": [
+   42,
+   16
+  ],
+  "region": "TempestIslandHex"
+ },
+ {
+  "mesh": "BridgeStoneRamp_C",
+  "gap": 0.12576178468737215,
+  "status": "same-side",
+  "region": "TempestIslandHex"
+ },
+ {
+  "mesh": "BridgeStoneRamp_C",
+  "gap": 0.16997083118562445,
+  "status": "same-side",
+  "region": "TempestIslandHex"
+ },
+ {
+  "mesh": "BridgeStoneRamp_C",
+  "gap": 0.12576178468737215,
+  "status": "same-side",
+  "region": "TempestIslandHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.8626115854593424,
+  "status": "joined",
+  "lines": [
+   48,
+   47
+  ],
+  "region": "TerminusHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.795388145575873,
+  "status": "joined",
+  "lines": [
+   47,
+   30
+  ],
+  "region": "TerminusHex"
+ },
+ {
+  "mesh": "BPTrainBridgeC_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "TerminusHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.6474077672156274,
+  "status": "joined",
+  "lines": [
+   21,
+   23
+  ],
+  "region": "TheFingersHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.8789223681103887,
+  "status": "joined",
+  "lines": [
+   35,
+   33
+  ],
+  "region": "TheFingersHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.5380390541393758,
+  "status": "joined",
+  "lines": [
+   5,
+   9
+  ],
+  "region": "TyrantFoothillsHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.7153498340069355,
+  "status": "joined",
+  "lines": [
+   8,
+   9
+  ],
+  "region": "TyrantFoothillsHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.7540699452553514,
+  "status": "joined",
+  "lines": [
+   7,
+   6
+  ],
+  "region": "TyrantFoothillsHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.7144842981070884,
+  "status": "joined",
+  "lines": [
+   28,
+   7
+  ],
+  "region": "TyrantFoothillsHex"
+ },
+ {
+  "mesh": "BPTrainBridgeC_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "TyrantFoothillsHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.546824914230755,
+  "status": "joined",
+  "lines": [
+   50,
+   18
+  ],
+  "region": "UmbralWildwoodHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.47897530224737395,
+  "status": "joined",
+  "lines": [
+   121,
+   128
+  ],
+  "region": "UmbralWildwoodHex"
+ },
+ {
+  "mesh": "BPDrawbridgeA_C",
+  "gap": 0.5158969685024021,
+  "status": "joined",
+  "lines": [
+   101,
+   102
+  ],
+  "region": "UmbralWildwoodHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.5835702590435136,
+  "status": "joined",
+  "lines": [
+   148,
+   160
+  ],
+  "region": "UmbralWildwoodHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.5650639912757386,
+  "status": "joined",
+  "lines": [
+   18,
+   17
+  ],
+  "region": "UmbralWildwoodHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.4933479842944519,
+  "status": "joined",
+  "lines": [
+   105,
+   134
+  ],
+  "region": "UmbralWildwoodHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.14599177876979172,
+  "status": "joined",
+  "lines": [
+   3,
+   4
+  ],
+  "region": "UmbralWildwoodHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.013655305449852282,
+  "status": "same-side",
+  "region": "UmbralWildwoodHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 0.20641992924385313,
+  "status": "joined",
+  "lines": [
+   125,
+   124
+  ],
+  "region": "UmbralWildwoodHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "UmbralWildwoodHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "UmbralWildwoodHex"
+ },
+ {
+  "mesh": "BPConcreteBridge_C",
+  "gap": 0.4980440365152471,
+  "status": "joined",
+  "lines": [
+   23,
+   43
+  ],
+  "region": "ViperPitHex"
+ },
+ {
+  "mesh": "BPConcreteBridge_C",
+  "gap": 0.597056073940726,
+  "status": "same-side",
+  "region": "ViperPitHex"
+ },
+ {
+  "mesh": "BPConcreteBridge_C",
+  "gap": 0.9131793627710937,
+  "status": "same-side",
+  "region": "ViperPitHex"
+ },
+ {
+  "mesh": "BPConcreteBridge_C",
+  "gap": 0.9131793627710937,
+  "status": "same-side",
+  "region": "ViperPitHex"
+ },
+ {
+  "mesh": "BPConcreteBridge_C",
+  "gap": 0.10395073235489946,
+  "status": "same-side",
+  "region": "ViperPitHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.4609570861914943,
+  "status": "joined",
+  "lines": [
+   2,
+   22
+  ],
+  "region": "ViperPitHex"
+ },
+ {
+  "mesh": "BPDrawbridgeC_C",
+  "gap": 0.4077305985264133,
+  "status": "same-side",
+  "region": "ViperPitHex"
+ },
+ {
+  "mesh": "BPDrawbridgeC_C",
+  "gap": 0.7418466933966729,
+  "status": "same-side",
+  "region": "ViperPitHex"
+ },
+ {
+  "mesh": "BPPlatformBridge_C",
+  "gap": 1.2481142957038698,
+  "status": "same-side",
+  "region": "ViperPitHex"
+ },
+ {
+  "mesh": "BPTrainBridgeA_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "ViperPitHex"
+ },
+ {
+  "mesh": "BridgeStoneBox_C",
+  "gap": 0.7013881306176529,
+  "status": "joined",
+  "lines": [
+   5,
+   18
+  ],
+  "region": "ViperPitHex"
+ },
+ {
+  "mesh": "BridgeStoneBox_C",
+  "gap": 0.9131793627710937,
+  "status": "same-side",
+  "region": "ViperPitHex"
+ },
+ {
+  "mesh": "BridgeStoneBox_C",
+  "gap": 0.19659390873054824,
+  "status": "same-side",
+  "region": "ViperPitHex"
+ },
+ {
+  "mesh": "BridgeStoneBox_C",
+  "gap": 0.19659390873054824,
+  "status": "same-side",
+  "region": "ViperPitHex"
+ },
+ {
+  "mesh": "BridgeStoneBox_C",
+  "gap": 0.4619268845702444,
+  "status": "joined",
+  "lines": [
+   18,
+   42
+  ],
+  "region": "WestgateHex"
+ },
+ {
+  "mesh": "BridgeStoneBox_C",
+  "gap": 0.4588339349528249,
+  "status": "same-side",
+  "region": "WestgateHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.6996257811675739,
+  "status": "joined",
+  "lines": [
+   9,
+   3
+  ],
+  "region": "WrestaHex"
+ },
+ {
+  "mesh": "BPDrawbridgeB_C",
+  "gap": 0.7759762688790397,
+  "status": "joined",
+  "lines": [
+   23,
+   19
+  ],
+  "region": "WrestaHex"
+ },
+ {
+  "mesh": "BPDrawbridgeC_C",
+  "gap": 2.141451520000609,
+  "status": "joined",
+  "lines": [
+   8,
+   12
+  ],
+  "region": "WrestaHex"
+ },
+ {
+  "mesh": "BPTrainBridgeC_C",
+  "gap": null,
+  "status": "excluded",
+  "region": "WrestaHex"
+ }
+]

@@ -84,6 +84,80 @@ def load_pak(region):
             for tier, line in rfp.hex_lines(region)]
 
 
+def load_pak_raw(region):
+    """Pak spline segments for one hex, UNCHAINED, in map pixels.
+
+    `hex_lines()` chains segments into roads, which is what production wants but
+    hides *where* the pak actually has geometry.  For diagnosing missing road
+    this is the honest view: one line per spline segment, straight between its
+    own two knots, with no snapping or joining that could invent or merge road.
+    """
+    path = os.path.join(PAK_JSON, region + ".json")
+    if not os.path.isfile(path):
+        return None
+    import roads_from_pak as rfp
+    ox, oy = grid.hex_origin(region)
+    s = grid.W / MAP_PX
+    out = []
+    for tier, e in rfp.load_splines(region):
+        pts = rfp.segment_points(e)
+        if len(pts) < 2:
+            continue
+        out.append((tier, [((x - ox) / s, (oy - y) / s) for x, y in pts]))
+    return out
+
+
+def load_streets(region):
+    """Town street polylines for one hex, in pixels of the map image.
+
+    Reads the `blueprints`/`symbols` keys, which `load_pak` does not touch --
+    those hold the TownSidewalk placements the road network was missing.  The
+    length of each piece is INFERRED from neighbour spacing (the exporter
+    carries no mesh dimensions), so this view is the check on that inference:
+    streets landing on the painted town grid confirms it, streets running long
+    or short does not.
+    """
+    import roads_from_blueprints as rbf
+    ox, oy = grid.hex_origin(region)
+    s = grid.W / MAP_PX
+    return [(2, [((x - ox) / s, (oy - y) / s) for x, y in line])
+            for line in rbf.hex_features_streets(region)]
+
+
+def load_network_geojson(path, region):
+    """Load a BUILT road network (GeoJSON, mercator) as map pixels.
+
+    Separate from load_pak(), which re-derives the network from the pak export.
+    Reading the built file instead means the render shows exactly what would be
+    deployed -- including the border weld and bridge joins -- rather than
+    silently dropping those steps because they live in a different tool.
+    """
+    import json as _json
+    d = _json.load(open(path, encoding="utf-8"))
+    feats = d.get("features", d)
+    ox, oy = grid.hex_origin(region)
+    s = grid.W / MAP_PX
+    k = 128.0 / 20037500.0
+    out = []
+    for f in feats:
+        props = f.get("properties", {}) or {}
+        if props.get("region") != region:
+            continue
+        g = f.get("geometry", {}) or {}
+        cs = g.get("coordinates") or []
+        polys = cs if g.get("type") == "MultiLineString" else [cs]
+        for line in polys:
+            if len(line) < 2:
+                continue
+            pts = []
+            for mx, my in line:
+                wx = mx * k + 128.0
+                wy = my * k - 128.0
+                pts.append(((wx - ox) / s, (oy - wy) / s))
+            out.append((props.get("tier"), pts))
+    return out
+
+
 def load_hand(region):
     """Hand-traced polylines for one hex, in pixels of the map image."""
     d = json.load(open(HAND, encoding="utf-8"))
@@ -105,10 +179,15 @@ def load_hand(region):
 
 
 def render(region, hand_only=False, out_dir=OUT, zoom=None, w=SCALE_W,
-           pak_only=False, no_map=False):
+           pak_only=False, no_map=False, raw=False, tier=None,
+           streets_only=False, geojson=None):
     """Render one overlay.  `zoom` is (x0, y0, x1, y1) in OUTPUT pixel
     coordinates; the crop is taken at full map resolution and then scaled to
-    `w` so a small area is legible instead of a few pixels wide."""
+    `w` so a small area is legible instead of a few pixels wide.
+
+    `raw=True` draws the pak's spline segments UNCHAINED -- the honest view of
+    what the pak contains, used to tell "the pak has no road here" apart from
+    "the builder dropped it"."""
     from PIL import Image, ImageDraw, ImageEnhance
     png = find_png(region)
     if png is None:
@@ -169,7 +248,21 @@ def render(region, hand_only=False, out_dir=OUT, zoom=None, w=SCALE_W,
                    fill=colour + (alpha,), width=width, joint="curve")
 
     hand = load_hand(region)
-    pak = load_pak(region) or []
+    pak = load_pak_raw(region) if raw else (load_pak(region) or [])
+    pak = pak or []
+    if geojson:
+        pak = load_network_geojson(geojson, region)
+    # Optional single-tier isolation.  Therizo's road is a 201-vertex gravel
+    # (tier 1) grid that is invisible when three tiers are overlaid at once, so
+    # being able to view one tier alone is not a convenience.
+    if tier is not None:
+        pak = [p for p in pak if p[0] == tier]
+
+    if streets_only:
+        # Streets only, on the real map, no hand trace and no main roads.  This
+        # isolates the TownSidewalk geometry so its placement and length can be
+        # judged directly.
+        pak = load_streets(region)
     by_tier = {}
     for t, pts in pak:
         by_tier.setdefault(t, []).append((t, pts))
@@ -183,6 +276,11 @@ def render(region, hand_only=False, out_dir=OUT, zoom=None, w=SCALE_W,
     # Suppress only the other source. These are two independent conditions:
     # combining them (as in `not hand_only and not pak_only`) wrongly hides
     # the hand layer in --hand-only mode and renders an empty image.
+    if streets_only:
+        # Suppress the hand trace: this view exists to judge the street geometry
+        # on its own, and magenta over it would hide exactly what is being
+        # checked.  --pak-only would do the same but is named for the roads.
+        hand = []
     if pak_only:
         hand = []
     if hand_only:
@@ -216,6 +314,12 @@ def render(region, hand_only=False, out_dir=OUT, zoom=None, w=SCALE_W,
         name += "_handonly"
     if zoom:
         name += "_zoom%d_%d_%d_%d" % tuple(zoom)
+    if streets_only:
+        name += "_streets"
+    if raw:
+        name += "_raw"
+    if tier is not None:
+        name += "_tier%d" % tier
     if no_map:
         name += "_nomap"
     out = os.path.join(out_dir, name + ".png")
@@ -237,6 +341,17 @@ def main():
     ap.add_argument("--zoom", help="x0,y0,x1,y1 in output pixels, e.g. 0,600,400,900")
     ap.add_argument("--width", type=int, default=SCALE_W,
                     help="output width in px for a zoomed crop")
+    ap.add_argument("--raw", action="store_true",
+                    help="draw the pak's spline segments UNCHAINED, one line "
+                         "per segment, to show what the pak actually contains")
+    ap.add_argument("--tier", type=int, default=None,
+                    help="draw only this tier (1 gravel, 2 dirt, 3 mud)")
+    ap.add_argument("--streets-only", action="store_true",
+                    help="draw ONLY the town streets (TownSidewalk blueprint "
+                         "placements) over the map, no hand trace, no roads")
+    ap.add_argument("--geojson", help="draw a BUILT network GeoJSON (e.g. the "
+                                      "welded + bridge-linked output) instead "
+                                      "of re-deriving from the pak")
     a = ap.parse_args()
     zoom = None
     if a.zoom:
@@ -258,7 +373,8 @@ def main():
         raise SystemExit("--hand-only and --pak-only are mutually exclusive")
     for hx in hexes:
         render(hx, hand_only=a.hand_only, zoom=zoom, w=a.width,
-               pak_only=a.pak_only, no_map=a.no_map)
+               pak_only=a.pak_only, no_map=a.no_map, raw=a.raw, tier=a.tier,
+               streets_only=a.streets_only, geojson=a.geojson)
 
 
 if __name__ == "__main__":
