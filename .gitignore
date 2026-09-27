@@ -2,3 +2,7 @@ node_modules/
 Roads.geojson
 /.parcel-cache/
 dist/*
+
+# Python bytecode from the road-extraction tooling
+__pycache__/
+*.pyc
