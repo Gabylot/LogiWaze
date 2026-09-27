@@ -80,8 +80,12 @@ def canonical_region(region):
     return None
 
 
-def load_offsets(path='/var/www/LogiWaze/scripts/export_major_locations.sh'):
+def load_offsets(path=None):
     """Parse the per-hex offset table straight out of the shell script.
+
+    The default path was hardcoded to /var/www/LogiWaze, which only exists on
+    the Linux box; on Windows every call raised FileNotFoundError before parsing
+    anything. Resolve relative to this file so the script runs in both places.
 
     Two shapes appear in the file: most entries write the multiplier
     explicitly ("1.5 * $w"), but a handful write a bare "0" with no
@@ -90,6 +94,10 @@ def load_offsets(path='/var/www/LogiWaze/scripts/export_major_locations.sh'):
     duplicate table lower down.
     """
     import re
+    import os
+    if path is None:
+        path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                            'scripts', 'export_major_locations.sh')
     txt = open(path).read()
     # Values are written as "0.75 * $w", "-2.25 * $w", or a bare "0"; the
     # negative sign is sometimes written with a leading dot ("-.75").
