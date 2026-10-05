@@ -146,7 +146,14 @@ def rdp(pts, eps):
             dist = np.hypot(*seg.T)
         else:
             t = np.clip((seg @ d) / (n * n), 0, 1)
-            proj = p + t[:, None] * d
+            # seg is RELATIVE to p, so the projection must be too.  Adding p
+            # back here compared an offset against an absolute point, so every
+            # distance came out as |p| (~231 units) and the test `dist > eps`
+            # was true for every point at every eps: rdp() never removed
+            # anything.  The OCR network therefore carried one vertex per
+            # skeleton pixel (738,923 vertices vs the hand-traced 156,214)
+            # and the map burned enormous RAM in the router.
+            proj = t[:, None] * d
             dist = np.hypot(*(seg - proj).T)
         k = int(np.argmax(dist))
         if dist[k] > eps:
@@ -483,10 +490,13 @@ def extract_hex(region, png=None, eps=0.06):
 
 
 if __name__ == '__main__':
+    import os
     import sys
-    feats, st = extract_hex(sys.argv[1])
-    print(f"{sys.argv[1]}: {st['edges']} edges, {st['px']} skeleton px, "
+    region = sys.argv[1]
+    out = sys.argv[2] if len(sys.argv) > 2 else f'{region}.geojson'
+    feats, st = extract_hex(region)
+    print(f"{region}: {st['edges']} edges, {st['px']} skeleton px, "
           f"tiers={st.get('tiers')}, origin={st['origin']}")
     json.dump({'type': 'FeatureCollection', 'features': feats},
-              open(f'/tmp/rx/{sys.argv[1]}.geojson', 'w'))
-    print(f"wrote /tmp/rx/{sys.argv[1]}.geojson")
+              open(out, 'w'))
+    print(f"wrote {os.path.abspath(out)}")

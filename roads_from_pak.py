@@ -319,6 +319,7 @@ def hex_lines(region, y_sign=-1.0, y_offset=0.0, collinear=COLLINEAR_DEG,
     entries = load_splines(region)
     if not entries:
         return []
+    entries = entries + load_bridges(region, entries)
     if ue_origin is None:
         ue_origin = (0.0, 0.0)
     ux, uy = ue_origin
@@ -485,6 +486,81 @@ def collapse_collinear(line, deg=COLLINEAR_DEG, min_run=2.0):
             j += 1
         out.append(line[j])
         i = j
+    return out
+
+
+
+
+# ---------------------------------------------------------------------------
+# Bridges.  Appended rather than spliced in: fh_map_exporter emits bridges as
+# 9-element transforms under `blueprints` / `symbols`, NOT as splines, so
+# load_splines() never sees them and every bridge in the game was being dropped.
+# ShackledChasmHex alone holds BPConcreteBridge_C, BPDrawbridgeB/C_C,
+# BPPlatformBridge_C and BPTrainBridgeA/C_C; `splines` there contains none of
+# them, which is why a crossing ~300 m SE of The Vanguard had no road over it.
+#
+# A placement gives a position and a yaw but no length, and the spacing between
+# placements does not give one either - they are scattered, p50 5.7 m between
+# BPDrawbridgeB_C instances against a bridge tens of metres long.  The length
+# comes from the road network instead: a bridge sits where a road crosses
+# water, so the nearest road end behind it and the nearest ahead of it, along its
+# own axis, are its abutments.  Where those abutments are already within
+# min_span the road reaches the bridge and CHAIN_TOL_CM welding already joins
+# them, so those are skipped rather than emitted as a duplicate line.
+# ---------------------------------------------------------------------------
+
+import re as _re
+import numpy as _np
+
+BRIDGE_MESH = _re.compile(r"bridge", _re.I)
+
+
+def load_bridges(region, pieces, min_span=500.0, reach=8000.0, angle=35.0):
+    """Synthetic 2-point spline entries for bridges that span a road gap."""
+    path = os.path.join(PAK_JSON, region + ".json")
+    if not os.path.isfile(path):
+        return []
+    try:
+        data = json.load(open(path, encoding="utf-8"))
+    except Exception:
+        return []
+    ends = []
+    for _tier, e in pieces:
+        ends.extend(segment_points(e))
+    if not ends:
+        return []
+    P = _np.asarray(ends, float)
+
+    out = []
+    for key in ("blueprints", "symbols"):
+        for name, entries in (data.get(key) or {}).items():
+            if not BRIDGE_MESH.search(name):
+                continue
+            for e in entries:
+                t = e.get("_self") if isinstance(e, dict) else None
+                if not t or len(t) < 8:
+                    continue
+                bx, by = float(t[0]), float(t[1])
+                yaw = math.radians(float(t[7]))
+                ux, uy = math.cos(yaw), math.sin(yaw)
+                rel = P - _np.array([bx, by])
+                along = rel @ _np.array([ux, uy])
+                across = _np.abs(rel[:, 0] * -uy + rel[:, 1] * ux)
+                lim = reach * math.tan(math.radians(angle))
+                back = along[(along < 0) & (across < lim)]
+                fwd = along[(along > 0) & (across < lim)]
+                if not len(back) or not len(fwd):
+                    continue
+                b, f = float(back.max()), float(fwd.min())
+                span = b + f
+                if span < min_span or span > reach:
+                    continue
+                a = _np.array([bx, by]) + b * _np.array([ux, uy])
+                c = _np.array([bx, by]) + f * _np.array([ux, uy])
+                ent = [0.0] * 23          # shaped like a spline so it flows
+                ent[0], ent[1] = float(a[0]), float(a[1])   # through chain()
+                ent[6], ent[7] = float(c[0]), float(c[1])   # and hex_lines()
+                out.append((1, ent))
     return out
 
 

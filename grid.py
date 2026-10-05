@@ -49,6 +49,21 @@ K2 = K / 2                         # 11.0851
 # same offset, so the two datasets agree with each other and it is this
 # mapping - not either dataset - that was wrong.  Effect on measured quality,
 # micro-averaged over 43 hexes: F1 55.1 -> 86.5, recall 58% -> 97.3%.
+#
+# CHECKED 2026-09-29, do not "correct" this without evidence.  A least-squares
+# refit of per-hex road centroids over all 53 hexes proposed (128.047,
+# -128.048) -- an appealing value, since it is exactly the HALF constant in
+# graphkit.m2w, and it made a 16.9-unit hex-placement error look better.  It is
+# wrong.  Measured against the deployed hand-traced road, which is known-good:
+#
+#     origin (115.21725, -116.90975)   pak road sits 0.05 units from it
+#     origin (128.04726, -128.04798)   pak road sits 7.70 units from it
+#
+# The centroid regression failed because the median road vertex is not a hex
+# centre: road is not distributed symmetrically within a hex, so the statistic
+# absorbs each hex's road bias as if it were placement error.  The agreement
+# test above does not have that failure mode -- it measures the geometry
+# against data known to be correctly placed.
 WORLD_ORIGIN_X = 115.21725
 WORLD_ORIGIN_Y = -116.90975
 

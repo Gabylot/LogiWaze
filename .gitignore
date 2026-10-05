@@ -6,3 +6,11 @@ dist/*
 # Python bytecode from the road-extraction tooling
 __pycache__/
 *.pyc
+
+# Local transfer/audit artefacts: multi-MB snapshots of intermediate GeoJSON,
+# generated overlay PNGs, and one-off debug screenshots.  The tooling that
+# produces them is committed; the artefacts themselves are not.
+road-handoff/
+road_overlays/
+456.png
+123.png
